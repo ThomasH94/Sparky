@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerHealth : BaseHealth
 {
     [SerializeField]
-    private FillStatusBar healthBar;
+    private FillStatusBar healthBar = null; // Have to do this for serializable fields now..
 
     public override void SubtractHealth(float healthToSubtract)
     {
