@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script will track all of the relevant information for completing the game and determining an ending
+/// </summary>
 public class QuestTracker : MonoBehaviour
 {
     public int collectedRobotParts;
@@ -12,7 +15,7 @@ public class QuestTracker : MonoBehaviour
 
     public void IncreasePartsCollected()
     {
-        
+
     }
 
     public void IncreaseEnemyDefeatedCount()
