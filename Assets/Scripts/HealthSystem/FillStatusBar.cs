@@ -23,20 +23,22 @@ public class FillStatusBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
+        /*
+        if(UnityEngine.Input.GetKeyDown(KeyCode.H))
         {
             Heal();
         }
 
-        if(Input.GetKeyDown(KeyCode.T))
+        if(UnityEngine.Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage();
         }
+        */
     }
 
     // Updates our slider values based on the amount of health remaining and disables the
     // fill image if we are less than a minimum threshold - defined in the inspector
-    private void UpdateHealthSlider()
+    public void UpdateHealthSlider()
     {
         float lowHealthRange = barSlider.maxValue / 3;  // Three is arbitrary for a "low" health threshold
         if(barSlider.value <= barSlider.minValue)
@@ -51,7 +53,7 @@ public class FillStatusBar : MonoBehaviour
             }
         }
 
-        fillValue = playerHealth.currentHealth / playerHealth.maxHealth;
+        fillValue = playerHealth.CurrentHealth / playerHealth.maxHealth;
         /*  UNCOMMENT IF YOU WANT HEALTH TO CHANGE COLORS - can be expanded for multiple phases
         if(fillValue <= lowHealthRange)
         {
@@ -69,22 +71,13 @@ public class FillStatusBar : MonoBehaviour
 
     private void Heal()
     {
-        playerHealth.currentHealth++;
-        if(playerHealth.currentHealth > playerHealth.maxHealth)
-        {
-            playerHealth.currentHealth = playerHealth.maxHealth;
-        }
+        playerHealth.AddHealth(1);
         UpdateHealthSlider();
     }
 
     private void TakeDamage()
     {
-        playerHealth.currentHealth--;
-        
-        if(playerHealth.currentHealth < playerHealth.minHealth)
-        {
-            playerHealth.currentHealth = playerHealth.minHealth;
-        }
+        playerHealth.SubtractHealth(1);
         UpdateHealthSlider();
     }
 }
