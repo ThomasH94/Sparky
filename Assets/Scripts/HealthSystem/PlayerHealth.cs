@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This script will be responsible for keeping track of the players current and max health
+/// This script inherits from BaseHealth so they play can define how to take damage and wrap things in coroutines
+/// for presentation
 /// </summary>
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : BaseHealth
 {
-    public float currentHealth;
-    public float maxHealth;
-    public float minHealth = 0f;
+    [SerializeField]
+    private FillStatusBar healthBar;
+
+    public override void SubtractHealth(float healthToSubtract)
+    {
+        base.SubtractHealth(healthToSubtract);
+        healthBar.UpdateHealthSlider();
+    }
+
+    public override void AddHealth(float healthToAdd)
+    {
+        base.AddHealth(healthToAdd);
+        healthBar.UpdateHealthSlider();
+    }
+
 }
