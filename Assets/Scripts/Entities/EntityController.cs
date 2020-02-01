@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,16 @@ public class EntityController : Damageable
     protected virtual void FixedUpdate()
     {
         
+    }
+
+    protected virtual void Move(Vector2 directionalInput)
+    {
+        if (Math.Abs(directionalInput.x) > .01f || Math.Abs(directionalInput.y) > .01f)
+        {
+            body.MovePosition(body.position + directionalInput.normalized * moveSpeed * Time.deltaTime);
+
+            SetFacingDirection(directionalInput);
+        }
     }
 
     protected virtual void SetFacingDirection(Vector2 dir)

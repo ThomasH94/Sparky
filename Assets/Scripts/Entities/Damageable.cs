@@ -7,6 +7,11 @@ public class Damageable : MonoBehaviour
     public int health;
     public int maxHealth;
 
+    private void Start()
+    {
+        health = maxHealth;
+    }
+
     public virtual int DoDamage(int amount)
     {
         if (health - amount < 0)
@@ -23,5 +28,15 @@ public class Damageable : MonoBehaviour
     public virtual void DoDie()
     {
 
+    }
+
+    public virtual int DoHeal(int amount)
+    {
+        if (health + amount > maxHealth)
+            amount = maxHealth - health;
+
+        health += amount;
+
+        return amount;
     }
 }

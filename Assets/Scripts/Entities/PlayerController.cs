@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class InputData
 {
     public Vector2 directional;
@@ -63,22 +64,10 @@ public class PlayerController : EntityController
             inputData.useAbility = 0;
     }
 
-    protected virtual void Move(Vector2 directionalInput)
-    {
-        if (Math.Abs(directionalInput.x) > .01f || Math.Abs(directionalInput.y) > .01f)
-        {
-            body.MovePosition(body.position + directionalInput.normalized * moveSpeed * Time.deltaTime);
-
-            SetFacingDirection(directionalInput);
-        }
-        else
-        {
-            body.velocity = new Vector2(0, 0);
-        }
-    }
+    //protected override void Move(Vector2 directionalInput) { }
 
     protected virtual void DoAbility(int index)
     {
-        Debug.Log("Use Ability: " + index);
+        //Debug.Log("Use Ability: " + index);
     }
 }
