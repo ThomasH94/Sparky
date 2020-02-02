@@ -5,7 +5,7 @@ using UnityEngine;
 public class SawBossGraphics : MonoBehaviour
 {
     [SerializeField]
-    private MinionController controller;
+    private SawBossController controller;
     [SerializeField]
     private Animator anim;
 
@@ -14,6 +14,15 @@ public class SawBossGraphics : MonoBehaviour
         //controller.onDamaged += i => anim.SetTrigger("hit");
         controller.onDied += () => anim.SetTrigger("die");
         controller.onUseAbility += OnUseAbility;
+        controller.onToggleSpinning += ToggleSpinning;
+    }
+
+    private void ToggleSpinning(bool on)
+    {
+        if(on)
+            anim.SetTrigger("spin");
+        else
+            anim.SetTrigger("stopSpin");
     }
 
     private void OnUseAbility(int number)

@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public abstract class EnemyBase : EntityController
 {
-    [SerializeField]
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     [SerializeField]
     protected LayerMask environmentMask;
     [SerializeField]
@@ -15,7 +14,7 @@ public abstract class EnemyBase : EntityController
     public bool isInAttackRange;
     public bool isAtDestination;
     public bool detectedPlayer;
-    protected Transform player;
+    public Transform player;
 
     protected IEnumerator losePlayerRoutine;
 
@@ -29,7 +28,7 @@ public abstract class EnemyBase : EntityController
     {
         if (detectedPlayer)
         {
-            agent.destination = player.position;
+            
             agent.speed = moveSpeed;
             agent.stoppingDistance = attackRange;
 
@@ -37,7 +36,7 @@ public abstract class EnemyBase : EntityController
 
             isInAttackRange = (transform.position - player.position).magnitude <= attackRange + 1f;
         }
-
+        
         isAtDestination = isInAttackRange || (agent.destination - transform.position).magnitude < agent.stoppingDistance + .1f;
     }
 

@@ -1,16 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SawBossController : EnemyBase
 {
+    public event Action<bool> onToggleSpinning;
+
+    public void ToggleSpinning(bool on)
+    {
+        onToggleSpinning?.Invoke(on);
+    }
+
     protected override void FixedUpdate()
     {
-        base.FixedUpdate();
-
-        if (detectedPlayer && isInAttackRange)
+        if (detectedPlayer)
         {
-            DoAbility(1);
+            DoAbility(2);
+
+            if(isInAttackRange)
+                DoAbility(1);
         }
+
+        base.FixedUpdate();
     }
 }

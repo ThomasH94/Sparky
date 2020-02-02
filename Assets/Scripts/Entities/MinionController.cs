@@ -9,9 +9,12 @@ public class MinionController : EnemyBase
     {
         base.FixedUpdate();
 
-        if (detectedPlayer && isInAttackRange)
+        if (detectedPlayer)
         {
-            DoAbility(1);
+            agent.destination = player.position;
+
+            if(isInAttackRange)
+                DoAbility(1);
         }
     }
 

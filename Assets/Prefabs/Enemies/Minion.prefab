@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 3
   cooldownRemaining: 0
-  damage: 10
+  damage: 3
   targetMask:
     serializedVersion: 2
     m_Bits: 256
@@ -958,6 +958,7 @@ MonoBehaviour:
   isInAttackRange: 0
   isAtDestination: 0
   detectedPlayer: 0
+  player: {fileID: 0}
 --- !u!54 &8406860374875292081
 Rigidbody:
   m_ObjectHideFlags: 0
