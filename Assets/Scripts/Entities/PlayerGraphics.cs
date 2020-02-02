@@ -16,7 +16,7 @@ public class PlayerGraphics : MonoBehaviour
 
     private void Update()
     {
-        anim.SetBool("isWalking", controller.inputData.directional != Vector2.zero);
+        anim.SetBool("isWalking", controller.input.playerControls.directional.ReadValue<Vector2>() != Vector2.zero);
     }
 
     private void OnUseAbility(int index)

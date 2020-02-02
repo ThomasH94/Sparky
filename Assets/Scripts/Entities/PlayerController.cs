@@ -2,15 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[Serializable]
-public class InputData
-{
-    public Vector2 directional;
-    public bool jump;
-    public int useAbility;
-    public bool interact;
-}
+//[Serializable]
+//public class InputData
+//{
+//    public Vector2 directional;
+//    public int useAbility;
+//    public bool interact;
+//}
 
 public class PlayerController : EntityController
 {
@@ -25,10 +25,8 @@ public class PlayerController : EntityController
     [NonSerialized]
     public bool inputEnabled;
 
-
-
-    private Input input;
-    public InputData inputData;
+    public Input input;
+    //public InputData inputData;
 
     protected override void Start()
     {
@@ -41,7 +39,14 @@ public class PlayerController : EntityController
     private void InitializeInput()
     {
         input = new Input();
-        inputData = new InputData();
+        //inputData = new InputData();
+
+        input.playerControls.use1.performed += context => DoAbility(1);
+        input.playerControls.use2.performed += context => DoAbility(2);
+        input.playerControls.use3.performed += context => DoAbility(3);
+        input.playerControls.use4.performed += context => DoAbility(4);
+        input.playerControls.use5.performed += context => DoAbility(5);
+        input.playerControls.use6.performed += context => DoAbility(6);
 
         input.Enable();
         inputEnabled = true;
@@ -51,48 +56,45 @@ public class PlayerController : EntityController
     {
         base.FixedUpdate();
 
-        GetInputData();
+        Move(input.playerControls.directional.ReadValue<Vector2>());
 
-        Move(inputData.directional);
+        //if (inputData.useAbility > 0)
+        //    DoAbility(inputData.useAbility);
 
-        if (inputData.useAbility > 0)
-            DoAbility(inputData.useAbility);
-
-        if (inputData.interact)
-        {
-            DoInteract();
-        }
+        //if (inputData.interact)
+        //{
+        //    DoInteract();
+        //}
     }
 
-    protected virtual void GetInputData()
-    {
-        inputData.directional = input.playerControls.directional.ReadValue<Vector2>();
-        inputData.jump = input.playerControls.jump.ReadValue<float>() > 0;
+    //protected virtual void GetInputData()
+    //{
+    //    inputData.directional = input.playerControls.directional.ReadValue<Vector2>();
 
-        if (input.playerControls.use1.ReadValue<float>() > 0)
-            inputData.useAbility = 1;
-        else if (input.playerControls.use2.ReadValue<float>() > 0)
-            inputData.useAbility = 2;
-        else if (input.playerControls.use3.ReadValue<float>() > 0)
-            inputData.useAbility = 3;
-        else if (input.playerControls.use4.ReadValue<float>() > 0)
-            inputData.useAbility = 4;
-        else if (input.playerControls.use5.ReadValue<float>() > 0)
-            inputData.useAbility = 5;
-        else if (input.playerControls.use6.ReadValue<float>() > 0)
-            inputData.useAbility = 6;
-        else
-            inputData.useAbility = 0;
+    //    if (input.playerControls.use1.ReadValue<float>() > 0)
+    //        inputData.useAbility = 1;
+    //    else if (input.playerControls.use2.ReadValue<float>() > 0)
+    //        inputData.useAbility = 2;
+    //    else if (input.playerControls.use3.ReadValue<float>() > 0)
+    //        inputData.useAbility = 3;
+    //    else if (input.playerControls.use4.ReadValue<float>() > 0)
+    //        inputData.useAbility = 4;
+    //    else if (input.playerControls.use5.ReadValue<float>() > 0)
+    //        inputData.useAbility = 5;
+    //    else if (input.playerControls.use6.ReadValue<float>() > 0)
+    //        inputData.useAbility = 6;
+    //    else
+    //        inputData.useAbility = 0;
 
-        if (input.playerControls.Interact.ReadValue<float>() > 0)
-        {
-            inputData.interact = true;
-        }
-        else
-        {
-            inputData.interact = false;
-        }
-    }
+    //    if (input.playerControls.Interact.ReadValue<float>() > 0)
+    //    {
+    //        inputData.interact = true;
+    //    }
+    //    else
+    //    {
+    //        inputData.interact = false;
+    //    }
+    //}
 
     //protected override void Move(Vector2 directionalInput) { }
 

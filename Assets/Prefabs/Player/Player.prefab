@@ -1148,11 +1148,6 @@ MonoBehaviour:
     type: 3}
   abilities:
   - {fileID: 420534921714678671}
-  inputData:
-    directional: {x: 0, y: 0}
-    jump: 0
-    useAbility: 0
-    interact: 0
 --- !u!54 &2673259679032771340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1167,7 +1162,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &4378288645131644929
 CapsuleCollider:

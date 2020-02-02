@@ -12,7 +12,7 @@ public class EntityController : Damageable
 {
     public event Action onMove;
     //public Action<FacingDirection> onFacingDirectionUpdated;
-    [HideInInspector]
+    //[HideInInspector]
     public float moveSpeed = 10f;
     public float baseMoveSpeed = 10f;
 
