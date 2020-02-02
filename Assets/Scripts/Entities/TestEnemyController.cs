@@ -6,8 +6,11 @@ public class TestEnemyController : EnemyBase
 {
 
 
-    protected override void DetectPlayer()
+    protected override void FixedUpdate()
     {
-
+        if (detectedPlayer && (transform.position - player.position).magnitude > attackRange)
+        {
+            Move(-(transform.position - player.position).normalized);
+        }
     }
 }
