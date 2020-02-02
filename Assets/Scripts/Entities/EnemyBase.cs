@@ -9,20 +9,36 @@ public abstract class EnemyBase : EntityController
     private NavMeshAgent agent;
     [SerializeField]
     protected LayerMask environmentMask;
+    [SerializeField]
+    protected float attackRange = 2f;
 
+    public bool isInAttackRange;
+    public bool isAtDestination;
     public bool detectedPlayer;
     protected Transform player;
 
     protected IEnumerator losePlayerRoutine;
 
-    private void FixedUpdate()
+    protected override void Start()
+    {
+        base.Start();
+        agent.destination = transform.position;
+    }
+
+    protected virtual void FixedUpdate()
     {
         if (detectedPlayer)
         {
             agent.destination = player.position;
             agent.speed = moveSpeed;
             agent.stoppingDistance = attackRange;
+
+            transform.LookAt(player.position);
+
+            isInAttackRange = (transform.position - player.position).magnitude <= attackRange + 1f;
         }
+
+        isAtDestination = isInAttackRange || (agent.destination - transform.position).magnitude < agent.stoppingDistance + .1f;
     }
 
     public virtual void OnTriggerStay(Collider collider)
@@ -52,6 +68,8 @@ public abstract class EnemyBase : EntityController
 
         detectedPlayer = true;
         this.player = player;
+
+        player.GetComponent<PlayerController>().onDied += OnPlayerDied;
     }
 
     protected virtual IEnumerator LosePlayer()
@@ -64,6 +82,13 @@ public abstract class EnemyBase : EntityController
     public override void DoDie()
     {
         base.DoDie();
+        detectedPlayer = false;
+        player = null;
+        agent.destination = transform.position;
+    }
+
+    protected virtual void OnPlayerDied()
+    {
         detectedPlayer = false;
         player = null;
         agent.destination = transform.position;

@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class EntityController : Damageable
 {
+    public event Action<int> onUseAbility;
     //public Action<FacingDirection> onFacingDirectionUpdated;
     //[HideInInspector]
     public float moveSpeed = 10f;
@@ -21,10 +22,10 @@ public class EntityController : Damageable
 
     [SerializeField]
     protected Rigidbody body = null;
-    [SerializeField]
-    protected float attackRange = 2f;
 
-    protected Transform lookAt;
+    [SerializeField]
+    protected AbilityBase[] abilities;
+
 
     protected virtual void Reset()
     {
@@ -35,12 +36,17 @@ public class EntityController : Damageable
     {
         base.Start();
         moveSpeed = baseMoveSpeed;
-
-        lookAt = new GameObject(gameObject.name + "_LookAt").transform;
-        lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
     }
 
-   
+    protected virtual void DoAbility(int number)
+    {
+        if (abilities.Length >= number && abilities[number - 1].cooldownRemaining <= 0)
+        {
+            abilities[number - 1].DoUse();
+
+            onUseAbility?.Invoke(number);
+        }
+    }
 
     //protected virtual void SetFacingDirection(Vector2 dir)
     //{

@@ -15,16 +15,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : EntityController
 {
     public event Action onMove;
-    public event Action<int> onUseAbility;
     public Action<PlayerController> CurrentInteractAction;
 
     [SerializeField]
     private CameraController cameraPrefab;
-    [SerializeField]
-    private AbilityBase[] abilities;
 
     [NonSerialized]
     public bool inputEnabled;
+    protected Transform lookAt;
 
     [SerializeField]
     private PlayerInventory _playerInventory = new PlayerInventory();
@@ -37,6 +35,9 @@ public class PlayerController : EntityController
     {
         base.Start();
         InitializeInput();
+
+        lookAt = new GameObject(gameObject.name + "_LookAt").transform;
+        lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
 
         Instantiate(cameraPrefab).Initialize(transform);
     }
@@ -82,16 +83,6 @@ public class PlayerController : EntityController
             transform.rotation = Quaternion.Lerp(transform.rotation, lookAt.rotation, rotSpeed);
 
             onMove?.Invoke();
-        }
-    }
-
-    protected virtual void DoAbility(int index)
-    {
-        if (abilities.Length >= index && abilities[index - 1].cooldownRemaining <= 0)
-        {
-            abilities[index - 1].DoUse(this);
-
-            onUseAbility?.Invoke(index);
         }
     }
 

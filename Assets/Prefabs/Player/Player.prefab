@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679721567}
   - component: {fileID: 1679721566}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sudoku
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   cooldownRemaining: 0
+  target: {fileID: 6865602635264026958}
 --- !u!1 &39487552105035614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1012,7 @@ GameObject:
   - component: {fileID: 3455282764298083948}
   - component: {fileID: 420534921714678671}
   - component: {fileID: 5021529594081160563}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Swipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,10 +1048,10 @@ MonoBehaviour:
   cooldown: 0.3
   cooldownRemaining: 0
   damage: 10
-  enemyMask:
+  targetMask:
     serializedVersion: 2
     m_Bits: 512
-  enemiesInRange: []
+  targetsInRange: []
 --- !u!135 &5021529594081160563
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1209,12 +1210,11 @@ MonoBehaviour:
   baseMoveSpeed: 10
   rotSpeed: 0.3
   body: {fileID: 2673259679032771340}
-  attackRange: 2
-  cameraPrefab: {fileID: 7414341009291664830, guid: 75e39fd94d0c21a41a21fa21d76d7dc0,
-    type: 3}
   abilities:
   - {fileID: 420534921714678671}
   - {fileID: 1679721566}
+  cameraPrefab: {fileID: 7414341009291664830, guid: 75e39fd94d0c21a41a21fa21d76d7dc0,
+    type: 3}
 --- !u!54 &2673259679032771340
 Rigidbody:
   m_ObjectHideFlags: 0
