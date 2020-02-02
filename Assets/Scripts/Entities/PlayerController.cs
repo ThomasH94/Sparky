@@ -93,7 +93,13 @@ public class PlayerController : EntityController
 
             onUseAbility?.Invoke(index);
         }
+    }
 
-        //Debug.Log("Use Ability: " + index);
+    public override void DoDie()
+    {
+        base.DoDie();
+
+        input.Disable();
+        inputEnabled = false;
     }
 }

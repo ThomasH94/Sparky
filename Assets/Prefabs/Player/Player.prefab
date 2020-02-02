@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
+  isDead: 0
   moveSpeed: 0.4
   baseMoveSpeed: 10
   rotSpeed: 0.3
@@ -1240,10 +1241,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.44486552
-  m_Height: 1.8344626
+  m_Radius: 0.53
+  m_Height: 2.31
   m_Direction: 2
-  m_Center: {x: 0, y: 0.5080883, z: 0.27276874}
+  m_Center: {x: 0, y: 0.5080883, z: 0.15}
 --- !u!1 &6921246844434912816
 GameObject:
   m_ObjectHideFlags: 0

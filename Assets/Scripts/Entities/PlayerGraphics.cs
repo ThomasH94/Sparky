@@ -12,6 +12,7 @@ public class PlayerGraphics : MonoBehaviour
     private void Start()
     {
         controller.onUseAbility += OnUseAbility;
+        controller.onDied += () => anim.SetTrigger("die");
     }
 
     private void Update()
