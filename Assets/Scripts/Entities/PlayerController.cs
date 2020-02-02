@@ -14,6 +14,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : EntityController
 {
+    public event Action onMove;
     public event Action<int> onUseAbility;
     public Action<PlayerController> CurrentInteractAction;
 
@@ -64,19 +65,41 @@ public class PlayerController : EntityController
         CurrentInteractAction = null;
     }
 
-    protected override void FixedUpdate()
+    private void FixedUpdate()
     {
-        base.FixedUpdate();
-
         Move(input.playerControls.directional.ReadValue<Vector2>());
+    }
+
+    protected virtual void Move(Vector3 directionalInput)
+    {
+        if (Math.Abs(directionalInput.x) > .01f || Math.Abs(directionalInput.y) > .01f)
+        {
+            Vector3 newDir = new Vector3(directionalInput.normalized.x, 0, directionalInput.normalized.y);
+            body.MovePosition(body.position + newDir * moveSpeed * Time.deltaTime);
+
+            lookAt.position = body.position;
+            lookAt.LookAt(body.position + newDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookAt.rotation, rotSpeed);
+
+            onMove?.Invoke();
+        }
     }
 
     protected virtual void DoAbility(int index)
     {
-        if(abilities.Length >= index)
-            abilities[index - 1]?.DoUse(this);
+        if (abilities.Length >= index && abilities[index - 1].cooldownRemaining <= 0)
+        {
+            abilities[index - 1].DoUse(this);
 
-        onUseAbility?.Invoke(index);
-        //Debug.Log("Use Ability: " + index);
+            onUseAbility?.Invoke(index);
+        }
+    }
+
+    public override void DoDie()
+    {
+        base.DoDie();
+
+        input.Disable();
+        inputEnabled = false;
     }
 }

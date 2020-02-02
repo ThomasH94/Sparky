@@ -12,9 +12,6 @@ public abstract class AbilityBase : MonoBehaviour
 
     public virtual void DoUse(PlayerController player_)
     {
-        if (cooldownRemaining > 0)
-            return;
-
         cooldownTimerRoutine = CooldownTimer(cooldown);
         StartCoroutine(cooldownTimerRoutine);
     }

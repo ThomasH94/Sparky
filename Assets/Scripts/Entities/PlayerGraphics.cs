@@ -12,6 +12,7 @@ public class PlayerGraphics : MonoBehaviour
     private void Start()
     {
         controller.onUseAbility += OnUseAbility;
+        controller.onDied += () => anim.SetTrigger("die");
     }
 
     private void Update()
@@ -22,7 +23,7 @@ public class PlayerGraphics : MonoBehaviour
     private void OnUseAbility(int index)
     {
         if (index == 1)
-            anim.SetTrigger("TailAttack");
+            anim.SetTrigger("swipeAttack");
     }
 
     //protected override void UpdateFacingDirection(FacingDirection newDir)

@@ -9,8 +9,15 @@ public class TestEnemyGraphics : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    private void Start()
+    {
+        controller.onDied += () => anim.SetTrigger("die");
+    }
+
     private void Update()
     {
         anim.SetBool("isWalking", controller.detectedPlayer);
     }
+
+
 }

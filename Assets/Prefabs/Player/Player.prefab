@@ -1010,6 +1010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3455282764298083948}
   - component: {fileID: 420534921714678671}
+  - component: {fileID: 5021529594081160563}
   m_Layer: 8
   m_Name: Swipe
   m_TagString: Untagged
@@ -1043,8 +1044,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7103163aa8b7b9f448bc8dd3633c89cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 0.3
   cooldownRemaining: 0
+  damage: 10
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 512
+  enemiesInRange: []
+--- !u!135 &5021529594081160563
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5848521372123226620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.04
+  m_Center: {x: 0, y: 0.85, z: 2.47}
 --- !u!1 &6162838405860043353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,8 +1202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6add704100907f4d93306ce664cdc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 0
   maxHealth: 100
+  isDead: 0
   moveSpeed: 0.4
   baseMoveSpeed: 10
   rotSpeed: 0.3
@@ -1221,10 +1241,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.44486552
-  m_Height: 1.8344626
+  m_Radius: 0.53
+  m_Height: 2.31
   m_Direction: 2
-  m_Center: {x: 0, y: 0.5080883, z: 0.27276874}
+  m_Center: {x: 0, y: 0.5080883, z: 0.15}
 --- !u!1 &6921246844434912816
 GameObject:
   m_ObjectHideFlags: 0
