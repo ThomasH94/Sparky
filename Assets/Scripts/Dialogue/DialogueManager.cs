@@ -5,60 +5,75 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
     #region singleton;
     public static DialogueManager Instance;
 
-    void Awake() {
-        Instance = this;
-    }
+    void Awake() { Instance = this; }
     #endregion
 
     [SerializeField]
-    private DialogueBubble _dialogueBubble;
+    private UIPrompt _dialogueBubble;
 
-    private bool _showingText;
-    private float _showDialogueTimer;
+    [SerializeField]
+    private UIPrompt _interactPrompt;
 
-    void Update() {
+    private bool _showingPrompt;
+    private float _showDialogueTimer = -1;
 
-        if (_showingText && _showDialogueTimer>-1) {
-
+    void Update()
+    {
+        if (_showingPrompt && _showDialogueTimer > -1)
+        {
             _showDialogueTimer -= Time.deltaTime;
 
-            if (_showDialogueTimer < 0) {
-
+            if (_showDialogueTimer < 0)
+            {
                 HideDialogue();
             }
         }
     }
 
-    public void ShowDialogue(string dialogue_, float time_ = -1) {
+    //TODO: pass in a list of strings instead, to queue multiple texts
+    //maybe split them by character limit as well, but autosize will do fine
 
-        if (_showingText)
-            return;
+    public void ShowDialogue(string dialogue_, float time_ = -1)
+    {
+        _dialogueBubble.show(dialogue_);
 
-        _dialogueBubble.showTextBox(dialogue_);
+        _showingPrompt = true;
 
-        _showingText = true;
-
-        if (time_ > -1) {
+        if (time_ > -1)
+        {
             _showDialogueTimer = time_;
         }
     }
 
-    public void HideDialogue() {
-
-        _dialogueBubble.hideTextBox();
+    public void HideDialogue()
+    {
+        _dialogueBubble.hide();
 
         resetDialogueTimer();
     }
 
-    private void resetDialogueTimer() {
-
-        _showingText = false;
+    private void resetDialogueTimer()
+    {
+        _showingPrompt = false;
 
         _showDialogueTimer = -1;
     }
 
+    public void showInteractPrompt()
+    {
+        showInteractPrompt(Vector3.zero);
+    }
+
+    public void showInteractPrompt(Vector3 position)
+    {
+        _interactPrompt.show(position);
+    }
+
+    public void hideInteractPrompt()
+    {
+        _interactPrompt.hide();
+    }
 }

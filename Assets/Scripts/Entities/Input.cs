@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Input.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Entities/Input.inputactions'
 
 using System;
 using System.Collections;
@@ -79,6 +79,14 @@ public class @Input : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""a277e0a0-7364-4739-bb09-bb30b4d4ddf9"",
                     ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb412eed-49f2-4d7f-8dbd-6565c5cf06a0"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -213,6 +221,17 @@ public class @Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""use6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d988135b-3b3a-42fd-a9bc-031418dd2aae"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -751,6 +770,7 @@ public class @Input : IInputActionCollection, IDisposable
         m_playerControls_use4 = m_playerControls.FindAction("use4", throwIfNotFound: true);
         m_playerControls_use5 = m_playerControls.FindAction("use5", throwIfNotFound: true);
         m_playerControls_use6 = m_playerControls.FindAction("use6", throwIfNotFound: true);
+        m_playerControls_Interact = m_playerControls.FindAction("Interact", throwIfNotFound: true);
         // userInterface
         m_userInterface = asset.FindActionMap("userInterface", throwIfNotFound: true);
         m_userInterface_Navigate = m_userInterface.FindAction("Navigate", throwIfNotFound: true);
@@ -821,6 +841,7 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_playerControls_use4;
     private readonly InputAction m_playerControls_use5;
     private readonly InputAction m_playerControls_use6;
+    private readonly InputAction m_playerControls_Interact;
     public struct PlayerControlsActions
     {
         private @Input m_Wrapper;
@@ -833,6 +854,7 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @use4 => m_Wrapper.m_playerControls_use4;
         public InputAction @use5 => m_Wrapper.m_playerControls_use5;
         public InputAction @use6 => m_Wrapper.m_playerControls_use6;
+        public InputAction @Interact => m_Wrapper.m_playerControls_Interact;
         public InputActionMap Get() { return m_Wrapper.m_playerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -866,6 +888,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @use6.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUse6;
                 @use6.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUse6;
                 @use6.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnUse6;
+                @Interact.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -894,6 +919,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @use6.started += instance.OnUse6;
                 @use6.performed += instance.OnUse6;
                 @use6.canceled += instance.OnUse6;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -1030,6 +1058,7 @@ public class @Input : IInputActionCollection, IDisposable
         void OnUse4(InputAction.CallbackContext context);
         void OnUse5(InputAction.CallbackContext context);
         void OnUse6(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUserInterfaceActions
     {

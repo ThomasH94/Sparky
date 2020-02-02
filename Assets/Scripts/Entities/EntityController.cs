@@ -16,6 +16,11 @@ public class EntityController : Damageable
     [SerializeField]
     protected Rigidbody2D body = null;
 
+    protected virtual void Reset()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
+
     protected virtual void FixedUpdate()
     {
         
