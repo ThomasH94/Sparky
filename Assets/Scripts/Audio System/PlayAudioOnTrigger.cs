@@ -5,9 +5,15 @@ using UnityEngine;
 public class PlayAudioOnTrigger : MonoBehaviour
 {
     public AudioClip clipToPlay;
+    public bool canTrigger = true;
 
     void OnTriggerEnter(Collider collider)
     {
+        if(!canTrigger)
+        {
+            return;
+        }
+
         if(collider.GetComponent<PlayerController>())
         {
             Camera mainCamera = Camera.main;
@@ -26,5 +32,18 @@ public class PlayAudioOnTrigger : MonoBehaviour
             }
 
         }
+    }
+
+    public void PlayAudioForBoss()
+    {
+        if(!canTrigger)
+        {
+            return;
+        }
+        Camera mainCamera = Camera.main;
+        AudioSource source = mainCamera.GetComponent<AudioSource>();
+        source.Stop();
+        source.clip = clipToPlay;
+        source.Play();
     }
 }
