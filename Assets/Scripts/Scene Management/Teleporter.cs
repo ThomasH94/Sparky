@@ -8,15 +8,15 @@ public class Teleporter : MonoBehaviour
     public string sceneToLoad;
     public int buildIndexToLoad;
 
-    public Vector2 newPlayerPosition;
+    public Vector3 newPlayerPosition;
 
     // Load a scene when we trigger this object
     // Then, set the player position based on where we load into
-    private void OnTriggerEnter2D(Collider2D col2D)
+    private void OnTriggerEnter(Collider col)
     {
-        if(col2D.name == "FakePlayerForTesting")
+        if(col.name == "FakePlayerForTesting")
         {
-            Debug.Log(col2D.gameObject.name);
+            Debug.Log(col.gameObject.name);
             if(loadWithString)
             {
                 SceneLoader.Instance.LoadSceneWithString(sceneToLoad);
@@ -27,6 +27,6 @@ public class Teleporter : MonoBehaviour
             }
         }
 
-        SceneLoader.Instance.MovePlayerAfterSceneLoad(col2D.gameObject, newPlayerPosition);
+        SceneLoader.Instance.MovePlayerAfterSceneLoad(col.gameObject, newPlayerPosition);
     }
 }
