@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class EnemyBase : EntityController
 {
+    [SerializeField]
+    private NavMeshAgent agent;
     [SerializeField]
     protected LayerMask environmentMask;
 
@@ -11,6 +14,16 @@ public abstract class EnemyBase : EntityController
     protected Transform player;
 
     protected IEnumerator losePlayerRoutine;
+
+    private void FixedUpdate()
+    {
+        if (detectedPlayer)
+        {
+            agent.destination = player.position;
+            agent.speed = moveSpeed;
+            agent.stoppingDistance = attackRange;
+        }
+    }
 
     public virtual void OnTriggerStay(Collider collider)
     {
@@ -35,14 +48,24 @@ public abstract class EnemyBase : EntityController
 
     protected virtual void DetectPlayer(Transform player)
     {
+        if (isDead) return;
+
         detectedPlayer = true;
         this.player = player;
     }
 
     protected virtual IEnumerator LosePlayer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         detectedPlayer = false;
         player = null;
+    }
+
+    public override void DoDie()
+    {
+        base.DoDie();
+        detectedPlayer = false;
+        player = null;
+        agent.destination = transform.position;
     }
 }
