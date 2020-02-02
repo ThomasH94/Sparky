@@ -2,20 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[Serializable]
-public class InputData
-{
-    public Vector2 directional;
-    public bool jump;
-    public int useAbility;
-    public bool interact;
-}
+//[Serializable]
+//public class InputData
+//{
+//    public Vector2 directional;
+//    public int useAbility;
+//    public bool interact;
+//}
 
 public class PlayerController : EntityController
 {
+    public event Action<int> onUseAbility;
+    public Action<PlayerController> CurrentInteractAction;
+
     [SerializeField]
     private CameraController cameraPrefab;
+    [SerializeField]
+    private AbilityBase[] abilities;
 
     [NonSerialized]
     public bool inputEnabled;
@@ -26,11 +31,7 @@ public class PlayerController : EntityController
         get => _playerInventory;
     }
 
-    public Action<PlayerController> CurrentInteractAction;
-
-    private Input input;
-    private InputData inputData;
-
+    public Input input;
     protected override void Start()
     {
         base.Start();
@@ -42,45 +43,19 @@ public class PlayerController : EntityController
     private void InitializeInput()
     {
         input = new Input();
-        inputData = new InputData();
+        //inputData = new InputData();
+
+        input.playerControls.use1.performed += context => DoAbility(1);
+        input.playerControls.use2.performed += context => DoAbility(2);
+        input.playerControls.use3.performed += context => DoAbility(3);
+        input.playerControls.use4.performed += context => DoAbility(4);
+        input.playerControls.use5.performed += context => DoAbility(5);
+        input.playerControls.use6.performed += context => DoAbility(6);
+
+        input.playerControls.Interact.performed += DoInteract;
 
         input.Enable();
         inputEnabled = true;
-    }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-
-        GetInputData();
-
-        Move(inputData.directional);
-
-        if (inputData.useAbility > 0)
-            DoAbility(inputData.useAbility);
-    }
-
-    protected virtual void GetInputData()
-    {
-        inputData.directional = input.playerControls.directional.ReadValue<Vector2>();
-        inputData.jump = input.playerControls.jump.ReadValue<float>() > 0;
-
-        if (input.playerControls.use1.ReadValue<float>() > 0)
-            inputData.useAbility = 1;
-        else if (input.playerControls.use2.ReadValue<float>() > 0)
-            inputData.useAbility = 2;
-        else if (input.playerControls.use3.ReadValue<float>() > 0)
-            inputData.useAbility = 3;
-        else if (input.playerControls.use4.ReadValue<float>() > 0)
-            inputData.useAbility = 4;
-        else if (input.playerControls.use5.ReadValue<float>() > 0)
-            inputData.useAbility = 5;
-        else if (input.playerControls.use6.ReadValue<float>() > 0)
-            inputData.useAbility = 6;
-        else
-            inputData.useAbility = 0;
-
-        input.playerControls.Interact.performed += DoInteract;
     }
 
     private void DoInteract(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -89,10 +64,19 @@ public class PlayerController : EntityController
         CurrentInteractAction = null;
     }
 
-    //protected override void Move(Vector2 directionalInput) { }
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        Move(input.playerControls.directional.ReadValue<Vector2>());
+    }
 
     protected virtual void DoAbility(int index)
     {
+        if(abilities.Length >= index)
+            abilities[index - 1]?.DoUse();
+
+        onUseAbility?.Invoke(index);
         //Debug.Log("Use Ability: " + index);
     }
 }

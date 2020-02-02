@@ -10,9 +10,11 @@ using UnityEngine;
 
 public class EntityController : Damageable
 {
+    public event Action onMove;
     //public Action<FacingDirection> onFacingDirectionUpdated;
-
+    //[HideInInspector]
     public float moveSpeed = 10f;
+    public float baseMoveSpeed = 10f;
 
     [SerializeField]
     private float rotSpeed = 2f;
@@ -32,6 +34,8 @@ public class EntityController : Damageable
 
     protected virtual void Start()
     {
+        moveSpeed = baseMoveSpeed;
+
         lookAt = new GameObject(gameObject.name + "_LookAt").transform;
         lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
     }
@@ -53,6 +57,8 @@ public class EntityController : Damageable
             lookAt.position = body.position;
             lookAt.LookAt(body.position + newDir);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookAt.rotation, rotSpeed);
+
+            onMove?.Invoke();
 
             //body.SetRotation(Mathf.Lerp(body.rotation, Vector3.SignedAngle(Vector3.up, directionalInput, Vector3.forward), rotSpeed));
             //transform.forward = newDir;

@@ -1,0 +1,1139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &96371305237020283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 865974033976116169}
+  m_Layer: 9
+  m_Name: GGJ_MinionPelvis001Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &865974033976116169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96371305237020283}
+  m_LocalRotation: {x: 0.000000010535551, y: -0.00000013400505, z: -0.04361939, w: 0.99904823}
+  m_LocalPosition: {x: -0.32698393, y: 0.00000005813599, z: -0.00000008478165}
+  m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+  m_Children:
+  - {fileID: 5074440347589567693}
+  m_Father: {fileID: 5763935445616240401}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 73.079956, y: -113.19147, z: -110.18309}
+--- !u!1 &699404507452612126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340060633154314050}
+  m_Layer: 9
+  m_Name: GGJ_MinionLLeg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340060633154314050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699404507452612126}
+  m_LocalRotation: {x: 0.7054136, y: -0.5874047, z: 0.064874746, w: -0.39132932}
+  m_LocalPosition: {x: 0.00000007751465, y: 0.000000029067994, z: 0.3408343}
+  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_Children:
+  - {fileID: 7394721722473621225}
+  m_Father: {fileID: 640709655456309271}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.000972, y: -176.35056, z: -61.537174}
+--- !u!1 &1356082197103098414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5763935445616240401}
+  m_Layer: 9
+  m_Name: GGJ_MinionPelvis001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5763935445616240401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356082197103098414}
+  m_LocalRotation: {x: -0.05669228, y: -0.0042763306, z: -0.00020539443, w: 0.9983825}
+  m_LocalPosition: {x: -0.4510768, y: 0, z: 0.0000000024223328}
+  m_LocalScale: {x: 1.0000001, y: 0.9999998, z: 0.9999999}
+  m_Children:
+  - {fileID: 8129422875756520152}
+  - {fileID: 865974033976116169}
+  - {fileID: 613633586212185798}
+  m_Father: {fileID: 7239522780890353122}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 5.870653, y: 2.7243664, z: 0.17361212}
+--- !u!1 &1652501760869520206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2530469618744911792}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArm1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2530469618744911792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652501760869520206}
+  m_LocalRotation: {x: -0.32923648, y: -0.07956608, z: 0.03497582, w: 0.94023895}
+  m_LocalPosition: {x: -0.16318072, y: -0.000000009689331, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 0.99999857, z: 1.0000013}
+  m_Children:
+  - {fileID: 4024713202123781321}
+  m_Father: {fileID: 8129422875756520152}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -29.822472, y: -11.016917, z: -8.9628525}
+--- !u!1 &1978497690674952085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8129422875756520152}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArmCollarbone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8129422875756520152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978497690674952085}
+  m_LocalRotation: {x: -0.026847692, y: 0.7670205, z: -0.021761639, w: 0.6406912}
+  m_LocalPosition: {x: 0.00000023254395, y: 0.0000005765152, z: 0.34882703}
+  m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+  m_Children:
+  - {fileID: 2530469618744911792}
+  m_Father: {fileID: 5763935445616240401}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.2127246, y: 100.440636, z: -4.1284027}
+--- !u!1 &2005445869364152532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3609945126558172284}
+  m_Layer: 9
+  m_Name: GGJ_MinionRLeg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3609945126558172284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005445869364152532}
+  m_LocalRotation: {x: -0.56401086, y: 0.8234305, z: -0.036972422, w: 0.049870785}
+  m_LocalPosition: {x: 0.00000007751465, y: 0.00000004360199, z: -0.34083423}
+  m_LocalScale: {x: 1.0000002, y: 0.99999994, z: 0.99999976}
+  m_Children:
+  - {fileID: 4771559897589441509}
+  m_Father: {fileID: 640709655456309271}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 12.392524, y: -145.2545, z: -75.79259}
+--- !u!1 &2262770834184236292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640709655456309271}
+  m_Layer: 9
+  m_Name: GGJ_MinionPelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640709655456309271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262770834184236292}
+  m_LocalRotation: {x: 0.5295918, y: -0.52959174, z: -0.46854305, w: 0.4685431}
+  m_LocalPosition: {x: 0.031643655, y: 0.6764445, z: 0.06576375}
+  m_LocalScale: {x: 0.99999994, y: 1.0000002, z: 0.99999994}
+  m_Children:
+  - {fileID: 340060633154314050}
+  - {fileID: 3609945126558172284}
+  - {fileID: 7239522780890353122}
+  m_Father: {fileID: 7179397947772581425}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.7310925, y: -83.728516, z: -90.29271}
+--- !u!1 &2705519475229219257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613633586212185798}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArmCollarbone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &613633586212185798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705519475229219257}
+  m_LocalRotation: {x: 0.026264425, y: -0.7667476, z: -0.021802714, w: 0.64104044}
+  m_LocalPosition: {x: -0, y: 0.0000005716705, z: -0.34882712}
+  m_LocalScale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
+  m_Children:
+  - {fileID: 6855360124883349376}
+  m_Father: {fileID: 5763935445616240401}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -0.12921986, y: -100.04095, z: -3.7594328}
+--- !u!1 &3364605828734520242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8679507635682591220}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArmDigit11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8679507635682591220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364605828734520242}
+  m_LocalRotation: {x: 0.06128462, y: 0.015162374, z: 0.51406515, w: 0.85542464}
+  m_LocalPosition: {x: 0.0059423507, y: -0.071572684, z: -0.022691948}
+  m_LocalScale: {x: 0.99999315, y: 1.0000255, z: 0.9999767}
+  m_Children:
+  - {fileID: 7013064390557091268}
+  m_Father: {fileID: 4772590050860232757}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 5.1210275, y: 5.1236596, z: 62.236572}
+--- !u!1 &3785238694147500286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4024713202123781321}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArm2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4024713202123781321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785238694147500286}
+  m_LocalRotation: {x: 0.39937395, y: 0.07251577, z: -0.26242086, w: 0.87542975}
+  m_LocalPosition: {x: -0.46987063, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000004, y: 0.99999154, z: 1.0000079}
+  m_Children:
+  - {fileID: 4772590050860232757}
+  m_Father: {fileID: 2530469618744911792}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 47.502537, y: -7.0267215, z: -7.2294497}
+--- !u!1 &3806473023030124048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4772590050860232757}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArmPalm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4772590050860232757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806473023030124048}
+  m_LocalRotation: {x: 0.7377141, y: 0.2534601, z: -0.06613061, w: 0.6222239}
+  m_LocalPosition: {x: -0.3103371, y: 0, z: -0.00000007751465}
+  m_LocalScale: {x: 0.9999983, y: 0.9999992, z: 1.0000001}
+  m_Children:
+  - {fileID: 8679507635682591220}
+  - {fileID: 6869249057839548476}
+  m_Father: {fileID: 4024713202123781321}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 74.36301, y: 125.819084, z: 100.290276}
+--- !u!1 &3980078364664751386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6869249057839548476}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArmDigit21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6869249057839548476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980078364664751386}
+  m_LocalRotation: {x: 0.00000064968316, y: -0.0000003458254, z: 0.34287155, w: 0.9393823}
+  m_LocalPosition: {x: -0.23597257, y: 0.029877711, z: 0.00000007751465}
+  m_LocalScale: {x: 0.99999547, y: 1.0000226, z: 0.999977}
+  m_Children: []
+  m_Father: {fileID: 4772590050860232757}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.00008488327, y: -0.000011030629, z: 40.10384}
+--- !u!1 &4912180042049899891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4975282336630514402}
+  m_Layer: 9
+  m_Name: GGJ_MinionRLegAnkle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4975282336630514402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912180042049899891}
+  m_LocalRotation: {x: 0.067886926, y: 0.20957685, z: -0.6241912, w: 0.74956936}
+  m_LocalPosition: {x: -0.47841087, y: 0.000000019378662, z: -0.000000019378662}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4771559897589441509}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.6213163, y: 0.1000605, z: -85.340034}
+--- !u!1 &5144642031707649437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7239522780890353122}
+  m_Layer: 9
+  m_Name: GGJ_MinionSpine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7239522780890353122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144642031707649437}
+  m_LocalRotation: {x: -0.056692272, y: 0.004271985, z: -0.00028001622, w: 0.99838257}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000006, z: 1.0000001}
+  m_Children:
+  - {fileID: 5763935445616240401}
+  m_Father: {fileID: 640709655456309271}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 5.86676, y: 3.601461, z: 0.22422859}
+--- !u!1 &6194984677270471714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7179397947772581425}
+  - component: {fileID: 6194984677270471715}
+  m_Layer: 9
+  m_Name: Minion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7179397947772581425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194984677270471714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 640709655456309271}
+  - {fileID: 1709078722780542651}
+  m_Father: {fileID: 8406860375523916191}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6194984677270471715
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194984677270471714}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88a3c22dda2a5994a954568464c3c559, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6239577528264221987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2955789370723632979}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArmDigit11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2955789370723632979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239577528264221987}
+  m_LocalRotation: {x: -0.06113791, y: -0.01523839, z: 0.5139788, w: 0.8554857}
+  m_LocalPosition: {x: 0.0059396373, y: -0.0715671, z: 0.022699894}
+  m_LocalScale: {x: 1.000012, y: 0.9999631, z: 1.0000244}
+  m_Children:
+  - {fileID: 3425527768861768759}
+  m_Father: {fileID: 4883492404247328677}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -5.102674, y: -5.121808, z: 62.22356}
+--- !u!1 &6389740860219165974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4824262027570350480}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArmDigit21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4824262027570350480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389740860219165974}
+  m_LocalRotation: {x: -0.00000063945396, y: 0.00000031788298, z: 0.3427706, w: 0.93941915}
+  m_LocalPosition: {x: -0.23597513, y: 0.029878331, z: -0.00000007751465}
+  m_LocalScale: {x: 1.0000077, y: 0.99996746, z: 1.0000246}
+  m_Children: []
+  m_Father: {fileID: 4883492404247328677}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.0000822693, y: 0.000007944636, z: 40.091526}
+--- !u!1 &6624123849038000842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5074440347589567693}
+  m_Layer: 9
+  m_Name: GGJ_MinionPelvis001Bone001Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5074440347589567693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624123849038000842}
+  m_LocalRotation: {x: 0.000000015797244, y: -0.00000012686284, z: -0.000000014901155,
+    w: 1}
+  m_LocalPosition: {x: -0.21248533, y: -0.004551258, z: -0.000000050868987}
+  m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 865974033976116169}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 20.480272, y: -0.0000007605224, z: 0.0000010379504}
+--- !u!1 &6725276842693528988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4883492404247328677}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArmPalm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4883492404247328677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725276842693528988}
+  m_LocalRotation: {x: -0.71246547, y: -0.2415305, z: -0.069472305, w: 0.65515614}
+  m_LocalPosition: {x: -0.3103372, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000015, y: 0.99999356, z: 1.0000043}
+  m_Children:
+  - {fileID: 2955789370723632979}
+  - {fileID: 4824262027570350480}
+  m_Father: {fileID: 379049730429806702}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -73.21528, y: -130.0133, z: 104.31792}
+--- !u!1 &7097298658104342088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6855360124883349376}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArm1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6855360124883349376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097298658104342088}
+  m_LocalRotation: {x: 0.33837178, y: 0.024011265, z: -0.038822174, w: 0.9399047}
+  m_LocalPosition: {x: -0.16318072, y: 0, z: -0.00000007751465}
+  m_LocalScale: {x: 0.9999999, y: 0.9999997, z: 1.0000002}
+  m_Children:
+  - {fileID: 379049730429806702}
+  m_Father: {fileID: 613633586212185798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 48.486794, y: 8.471186, z: 15.99216}
+--- !u!1 &7259046555376128208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7013064390557091268}
+  m_Layer: 9
+  m_Name: GGJ_MinionLArmDigit12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7013064390557091268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259046555376128208}
+  m_LocalRotation: {x: -0.019167969, y: 0.015768968, z: -0.2991394, w: 0.95388657}
+  m_LocalPosition: {x: -0.12099788, y: 0.00000007751465, z: 0.000000038757324}
+  m_LocalScale: {x: 0.99998665, y: 1.0000507, z: 0.99995285}
+  m_Children: []
+  m_Father: {fileID: 8679507635682591220}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.5548472, y: 2.382284, z: -34.855244}
+--- !u!1 &7301295468799200328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4771559897589441509}
+  m_Layer: 9
+  m_Name: GGJ_MinionRLeg2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4771559897589441509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301295468799200328}
+  m_LocalRotation: {x: -0.090362206, y: -0.12508246, z: 0.4795618, w: 0.86383426}
+  m_LocalPosition: {x: -0.18633506, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children:
+  - {fileID: 4975282336630514402}
+  m_Father: {fileID: 3609945126558172284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 40.4667, y: -50.071426, z: 117.14557}
+--- !u!1 &7581853579699593823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7394721722473621225}
+  m_Layer: 9
+  m_Name: GGJ_MinionLLeg2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7394721722473621225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7581853579699593823}
+  m_LocalRotation: {x: 0.21216886, y: 0.572798, z: 0.7641714, w: 0.20719312}
+  m_LocalPosition: {x: -0.18633506, y: -0.000000038757324, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000004}
+  m_Children:
+  - {fileID: 53216831461006261}
+  m_Father: {fileID: 340060633154314050}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.18133658, y: 18.313213, z: 61.10278}
+--- !u!1 &8209324408750845021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53216831461006261}
+  m_Layer: 9
+  m_Name: GGJ_MinionLLegAnkle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &53216831461006261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8209324408750845021}
+  m_LocalRotation: {x: -0.00018591988, y: -0.00020617673, z: -0.6685856, w: 0.7436352}
+  m_LocalPosition: {x: -0.47841093, y: -0.000000038757324, z: -0.000000019378662}
+  m_LocalScale: {x: 0.9999997, y: 1.0000006, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 7394721722473621225}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -22.470762, y: -8.76722, z: -80.4304}
+--- !u!1 &8219046159314993542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3425527768861768759}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArmDigit12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3425527768861768759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8219046159314993542}
+  m_LocalRotation: {x: 0.019167338, y: -0.015765687, z: -0.29926255, w: 0.953848}
+  m_LocalPosition: {x: -0.12099788, y: 0.000000038757324, z: 0}
+  m_LocalScale: {x: 1.0000192, y: 0.99993026, z: 1.0000492}
+  m_Children: []
+  m_Father: {fileID: 2955789370723632979}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.5545853, y: -2.3821015, z: -34.870026}
+--- !u!1 &8406860374875292047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8406860374875292083}
+  - component: {fileID: 8406860374875292082}
+  - component: {fileID: 8406860374875292081}
+  - component: {fileID: 8406860374875292080}
+  - component: {fileID: 123004934974036581}
+  m_Layer: 9
+  m_Name: Minion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8406860374875292083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860374875292047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.49, y: 0, z: 37.132}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8406860375523916191}
+  - {fileID: 8406860375805270003}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8406860374875292082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860374875292047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1a2c98db076a74faa70b58dad29154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  moveSpeed: 10
+  baseMoveSpeed: 10
+  rotSpeed: 2
+  body: {fileID: 8406860374875292081}
+  attackRange: 2
+  environmentMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  detectedPlayer: 0
+  agent: {fileID: 123004934974036581}
+--- !u!54 &8406860374875292081
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860374875292047}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 500
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!135 &8406860374875292080
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860374875292047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.95
+  m_Center: {x: 0, y: 1.01, z: 0}
+--- !u!195 &123004934974036581
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860374875292047}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.9
+  m_Speed: 3.5
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 500
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!1 &8406860375523916190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8406860375523916191}
+  - component: {fileID: 7853486643976368700}
+  m_Layer: 9
+  m_Name: Graphics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8406860375523916191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860375523916190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7179397947772581425}
+  m_Father: {fileID: 8406860374875292083}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7853486643976368700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860375523916190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62cb98f19526a0e45810f6c231a1e2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 8406860374875292082}
+  anim: {fileID: 6194984677270471715}
+--- !u!1 &8406860375805270002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8406860375805270003}
+  - component: {fileID: 8406860375805270004}
+  m_Layer: 9
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8406860375805270003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860375805270002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8406860374875292083}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8406860375805270004
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860375805270002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8663811283330447750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379049730429806702}
+  m_Layer: 9
+  m_Name: GGJ_MinionRArm2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &379049730429806702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663811283330447750}
+  m_LocalRotation: {x: -0.40127593, y: 0.061120346, z: 0.036119834, w: 0.9132017}
+  m_LocalPosition: {x: -0.46987078, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000049, z: 0.9999951}
+  m_Children:
+  - {fileID: 4883492404247328677}
+  m_Father: {fileID: 6855360124883349376}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -47.502514, y: 7.026731, z: -28.019588}
+--- !u!1 &8855294406208739214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709078722780542651}
+  - component: {fileID: 5581163021419505138}
+  m_Layer: 9
+  m_Name: Sphere001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709078722780542651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855294406208739214}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0.97982603, z: 0.000000042829555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7179397947772581425}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &5581163021419505138
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855294406208739214}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3661639628750336703, guid: 8f1fb9108e7fb7e4ab60c77c4c418f67, type: 3}
+  - {fileID: -3661639628750336703, guid: 8f1fb9108e7fb7e4ab60c77c4c418f67, type: 3}
+  - {fileID: -3661639628750336703, guid: 8f1fb9108e7fb7e4ab60c77c4c418f67, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 973877516759717424, guid: 8f1fb9108e7fb7e4ab60c77c4c418f67, type: 3}
+  m_Bones:
+  - {fileID: 7239522780890353122}
+  - {fileID: 5763935445616240401}
+  - {fileID: 865974033976116169}
+  - {fileID: 5074440347589567693}
+  - {fileID: 640709655456309271}
+  - {fileID: 6855360124883349376}
+  - {fileID: 613633586212185798}
+  - {fileID: 379049730429806702}
+  - {fileID: 4883492404247328677}
+  - {fileID: 2955789370723632979}
+  - {fileID: 3425527768861768759}
+  - {fileID: 4824262027570350480}
+  - {fileID: 2530469618744911792}
+  - {fileID: 4024713202123781321}
+  - {fileID: 8129422875756520152}
+  - {fileID: 4772590050860232757}
+  - {fileID: 7013064390557091268}
+  - {fileID: 8679507635682591220}
+  - {fileID: 6869249057839548476}
+  - {fileID: 3609945126558172284}
+  - {fileID: 4771559897589441509}
+  - {fileID: 4975282336630514402}
+  - {fileID: 340060633154314050}
+  - {fileID: 7394721722473621225}
+  - {fileID: 53216831461006261}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 640709655456309271}
+  m_AABB:
+    m_Center: {x: -0.2113095, y: -0.0027533472, z: -0.020313501}
+    m_Extent: {x: 1.0046043, y: 0.8651837, z: 1.6710372}
+  m_DirtyAABB: 0

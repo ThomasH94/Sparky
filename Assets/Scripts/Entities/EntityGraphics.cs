@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EntityGraphics : MonoBehaviour
 {
-    [SerializeField]
-    protected EntityController controller;
+    //[SerializeField]
+    //protected EntityController controller;
 
-    protected virtual void Start()
-    {
-        //controller.onFacingDirectionUpdated += UpdateFacingDirection;
-    }
+    //protected virtual void Start()
+    //{
+    //    controller
+    //}
 
     //protected virtual void UpdateFacingDirection(FacingDirection newDir) { }
 }

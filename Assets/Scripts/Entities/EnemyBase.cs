@@ -7,7 +7,7 @@ public abstract class EnemyBase : EntityController
     [SerializeField]
     protected LayerMask environmentMask;
 
-    protected bool detectedPlayer;
+    public bool detectedPlayer;
     protected Transform player;
 
     protected IEnumerator losePlayerRoutine;
@@ -18,15 +18,17 @@ public abstract class EnemyBase : EntityController
         {
             if (Physics.Linecast(transform.position, collider.transform.position, environmentMask))
             {
+                Debug.DrawLine(transform.position, collider.transform.position, Color.red);
+                losePlayerRoutine = LosePlayer();
+                StartCoroutine(losePlayerRoutine);
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, collider.transform.position, Color.cyan);
                 DetectPlayer(collider.transform);
 
                 if (losePlayerRoutine != null)
                     StopCoroutine(losePlayerRoutine);
-            }
-            else
-            {
-                losePlayerRoutine = LosePlayer();
-                StartCoroutine(losePlayerRoutine);
             }
         }
     }
