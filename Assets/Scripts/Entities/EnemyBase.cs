@@ -5,16 +5,42 @@ using UnityEngine;
 public abstract class EnemyBase : EntityController
 {
     [SerializeField]
-    private LayerMask environmentMask;
+    protected LayerMask environmentMask;
 
-    public virtual void OnTriggerStay2D(Collider2D collider)
+    protected bool detectedPlayer;
+    protected Transform player;
+
+    protected IEnumerator losePlayerRoutine;
+
+    public virtual void OnTriggerStay(Collider collider)
     {
         if (LayerMask.LayerToName(collider.gameObject.layer) == "Player")
         {
-            if (Physics2D.Linecast(transform.position, collider.transform.position, environmentMask).transform == null)
-                DetectPlayer();
+            if (Physics.Linecast(transform.position, collider.transform.position, environmentMask))
+            {
+                DetectPlayer(collider.transform);
+
+                if (losePlayerRoutine != null)
+                    StopCoroutine(losePlayerRoutine);
+            }
+            else
+            {
+                losePlayerRoutine = LosePlayer();
+                StartCoroutine(losePlayerRoutine);
+            }
         }
     }
 
-    protected virtual void DetectPlayer() { }
+    protected virtual void DetectPlayer(Transform player)
+    {
+        detectedPlayer = true;
+        this.player = player;
+    }
+
+    protected virtual IEnumerator LosePlayer()
+    {
+        yield return new WaitForSeconds(1f);
+        detectedPlayer = false;
+        player = null;
+    }
 }

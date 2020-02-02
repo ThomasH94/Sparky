@@ -14,17 +14,23 @@ public class InputData
 
 public class PlayerController : EntityController
 {
-    private Input input;
-    public InputData inputData;
+    [SerializeField]
+    private CameraController cameraPrefab;
 
     [NonSerialized]
     public bool inputEnabled;
 
     public Action CurrentInteractAction;
 
-    public void Start()
+    private Input input;
+    private InputData inputData;
+
+    protected override void Start()
     {
+        base.Start();
         InitializeInput();
+
+        Instantiate(cameraPrefab).Initialize(transform);
     }
 
     private void InitializeInput()
@@ -38,6 +44,8 @@ public class PlayerController : EntityController
 
     protected override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         GetInputData();
 
         Move(inputData.directional);
