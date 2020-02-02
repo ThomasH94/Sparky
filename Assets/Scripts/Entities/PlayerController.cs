@@ -9,6 +9,7 @@ public class InputData
     public Vector2 directional;
     public bool jump;
     public int useAbility;
+    public bool interact;
 }
 
 public class PlayerController : EntityController
@@ -18,6 +19,8 @@ public class PlayerController : EntityController
 
     [NonSerialized]
     public bool inputEnabled;
+
+    public Action CurrentInteractAction;
 
     public void Start()
     {
@@ -41,6 +44,11 @@ public class PlayerController : EntityController
 
         if (inputData.useAbility > 0)
             DoAbility(inputData.useAbility);
+
+        if (inputData.interact)
+        {
+            DoInteract();
+        }
     }
 
     protected virtual void GetInputData()
@@ -62,6 +70,17 @@ public class PlayerController : EntityController
             inputData.useAbility = 6;
         else
             inputData.useAbility = 0;
+
+        if (input.playerControls.Interact.ReadValue<float>() > 0)
+        {
+            inputData.interact = true;
+        }
+        else
+        {
+            inputData.interact = false;
+        }
+
+
     }
 
     //protected override void Move(Vector2 directionalInput) { }
@@ -69,5 +88,10 @@ public class PlayerController : EntityController
     protected virtual void DoAbility(int index)
     {
         //Debug.Log("Use Ability: " + index);
+    }
+
+    private void DoInteract()
+    {
+        CurrentInteractAction?.Invoke();
     }
 }
