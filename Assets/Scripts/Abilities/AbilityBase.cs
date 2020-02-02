@@ -10,7 +10,7 @@ public abstract class AbilityBase : MonoBehaviour
 
     private IEnumerator cooldownTimerRoutine;
 
-    public virtual void DoUse()
+    public virtual void DoUse(PlayerController player_)
     {
         if (cooldownRemaining > 0)
             return;

@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1679721565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679721567}
+  - component: {fileID: 1679721566}
+  m_Layer: 8
+  m_Name: Sudoku
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1679721567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679721565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2755767968708196899}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679721566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679721565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86344d9d747fa4924953295709624641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  cooldownRemaining: 0
 --- !u!1 &39487552105035614
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +900,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3455282764298083948}
+  - {fileID: 1679721567}
   m_Father: {fileID: 6865602635264026957}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1137,9 +1183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6add704100907f4d93306ce664cdc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
   maxHealth: 100
-  moveSpeed: 10
+  moveSpeed: 0.4
   baseMoveSpeed: 10
   rotSpeed: 0.3
   body: {fileID: 2673259679032771340}
@@ -1148,6 +1194,7 @@ MonoBehaviour:
     type: 3}
   abilities:
   - {fileID: 420534921714678671}
+  - {fileID: 1679721566}
 --- !u!54 &2673259679032771340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1174,10 +1221,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.7
-  m_Height: 2.78
+  m_Radius: 0.44486552
+  m_Height: 1.8344626
   m_Direction: 2
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0, y: 0.5080883, z: 0.27276874}
 --- !u!1 &6921246844434912816
 GameObject:
   m_ObjectHideFlags: 0

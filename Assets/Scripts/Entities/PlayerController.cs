@@ -74,7 +74,7 @@ public class PlayerController : EntityController
     protected virtual void DoAbility(int index)
     {
         if(abilities.Length >= index)
-            abilities[index - 1]?.DoUse();
+            abilities[index - 1]?.DoUse(this);
 
         onUseAbility?.Invoke(index);
         //Debug.Log("Use Ability: " + index);

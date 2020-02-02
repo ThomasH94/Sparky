@@ -23,7 +23,7 @@ public class Damageable : MonoBehaviour
 
         health -= amount;
 
-        HealthUpdatedEvent.Invoke(health / maxHealth);
+        HealthUpdatedEvent.Invoke((float)health / maxHealth);
 
         if (health <= 0)
             DoDie();

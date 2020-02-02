@@ -32,7 +32,7 @@ public class HealthBar : FillStatusBar
 
         _subscribedToEvents = subscribe_;
 
-        if (_damageableEntityReference == null)
+        if (subscribe_ && _damageableEntityReference == null)
         {
             Debug.Log("<color=red>damageable reference not assigned</color>", this);
             return;

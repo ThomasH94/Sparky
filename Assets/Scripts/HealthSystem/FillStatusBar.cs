@@ -10,6 +10,9 @@ public class FillStatusBar : MonoBehaviour
     [SerializeField]
     protected Slider _fillSlider;
 
+    [SerializeField]
+    private bool _hideWhenEmpty;
+
     protected float _fillValue = 1;
 
     protected virtual void Reset()
@@ -50,6 +53,9 @@ public class FillStatusBar : MonoBehaviour
 
     private void Removebar()
     {
-        _fillSlider.gameObject.SetActive(false);
+        if (_hideWhenEmpty)
+        {
+            _fillSlider.gameObject.SetActive(false);
+        }
     }
 }
