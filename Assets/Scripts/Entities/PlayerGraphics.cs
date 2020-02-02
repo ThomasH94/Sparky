@@ -22,7 +22,7 @@ public class PlayerGraphics : MonoBehaviour
     private void OnUseAbility(int index)
     {
         if (index == 1)
-            anim.SetTrigger("TailAttack");
+            anim.SetTrigger("swipeAttack");
     }
 
     //protected override void UpdateFacingDirection(FacingDirection newDir)
