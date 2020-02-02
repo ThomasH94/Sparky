@@ -20,6 +20,9 @@ public class RobotPart : InteractableObject
     {
         player.PlayerInventory.addItem(partType.ToString());
 
+        //todo: fancy celebration or somethin
+        Debug.Log($"YOU GOT THE {partType}!!");
+
         Destroy(gameObject);
     }
 }

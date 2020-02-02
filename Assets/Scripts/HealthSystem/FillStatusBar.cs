@@ -3,81 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// This class wil be responsible for updating the UI of the player health
-/// </summary>
 public class FillStatusBar : MonoBehaviour
 {
-    public PlayerHealth playerHealth;
-    #region UI
-    public Image fillImage;
-    public Slider barSlider;
-    private float fillValue = 0;
-    #endregion
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    protected Image _fillImage;
+    [SerializeField]
+    protected Slider _fillSlider;
+
+    protected float _fillValue = 1;
+
+    protected virtual void Reset()
     {
-        UpdateHealthSlider();
+        _fillSlider = GetComponent<Slider>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Start()
     {
-        /*
-        if(UnityEngine.Input.GetKeyDown(KeyCode.H))
-        {
-            Heal();
-        }
+        BindSlider();
+    }
 
-        if(UnityEngine.Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage();
-        }
-        */
+    protected virtual void SetFill(float amount)
+    {
+        _fillValue = amount;
+
+        BindSlider();
+    }
+
+    protected virtual void UpdateFill(float amount)
+    {
+        _fillValue += amount;
+
+        BindSlider();
     }
 
     // Updates our slider values based on the amount of health remaining and disables the
     // fill image if we are less than a minimum threshold - defined in the inspector
-    public void UpdateHealthSlider()
+    public virtual void BindSlider()
     {
-        float lowHealthRange = barSlider.maxValue / 3;  // Three is arbitrary for a "low" health threshold
-        if(barSlider.value <= barSlider.minValue)
-        {
-            fillImage.enabled = false;
-        }
-        else
-        {
-            if(fillImage.enabled == false)
-            {
-                fillImage.enabled = true;
-            }
-        }
+        _fillSlider.value = _fillValue;
 
-        fillValue = playerHealth.CurrentHealth / playerHealth.maxHealth;
-        /*  UNCOMMENT IF YOU WANT HEALTH TO CHANGE COLORS - can be expanded for multiple phases
-        if(fillValue <= lowHealthRange)
+        if(_fillSlider.value <= _fillSlider.minValue)
         {
-            fillImage.Color = Color.white;  // Or any color for that matter..
+            Removebar();
         }
-        else if(fillValue > lowHealthRange)
-        {
-            fillImage.Color = Color.green; // Sets our color back to default
-        }
-        */
-
-        barSlider.value = fillValue;
-
     }
 
-    private void Heal()
+    private void Removebar()
     {
-        playerHealth.AddHealth(1);
-        UpdateHealthSlider();
-    }
-
-    private void TakeDamage()
-    {
-        playerHealth.SubtractHealth(1);
-        UpdateHealthSlider();
+        _fillSlider.gameObject.SetActive(false);
     }
 }

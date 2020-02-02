@@ -7,8 +7,9 @@ public class InteractableObject : EntityController
     [SerializeField]
     private bool showInteractionPrompt;
 
-    [SerializeField]
-    private Transform interactPromptPosition;
+    //[SerializeField]
+    //private Transform interactPromptPosition;
+    //TODO: reimplement this if we have time
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,9 +22,7 @@ public class InteractableObject : EntityController
 
         if (showInteractionPrompt)
         {
-            Vector3 promptPosition = interactPromptPosition? interactPromptPosition.position: transform.position;
-
-            DialogueManager.Instance.showInteractPrompt(interactPromptPosition.position);
+            DialogueManager.Instance.showInteractPrompt();
         }
     }
 

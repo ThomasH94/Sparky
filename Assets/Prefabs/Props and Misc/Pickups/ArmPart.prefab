@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 224939413191222938, guid: 2f6f9a4cef74d5945a2b0dfb2b9c913d,
         type: 3}
       propertyPath: m_Name
-      value: RobotPart
+      value: ArmPart
       objectReference: {fileID: 0}
     - target: {fileID: 1414595237232342975, guid: 2f6f9a4cef74d5945a2b0dfb2b9c913d,
         type: 3}

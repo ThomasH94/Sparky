@@ -21,13 +21,12 @@ public class PlayerController : EntityController
     public bool inputEnabled;
 
     [SerializeField]
-    private PlayerInventory _playerInventory;
+    private PlayerInventory _playerInventory = new PlayerInventory();
     public PlayerInventory PlayerInventory {
         get => _playerInventory;
     }
 
     public Action<PlayerController> CurrentInteractAction;
-
 
     private Input input;
     private InputData inputData;
@@ -59,11 +58,6 @@ public class PlayerController : EntityController
 
         if (inputData.useAbility > 0)
             DoAbility(inputData.useAbility);
-
-        if (inputData.interact)
-        {
-            DoInteract();
-        }
     }
 
     protected virtual void GetInputData()
@@ -86,14 +80,13 @@ public class PlayerController : EntityController
         else
             inputData.useAbility = 0;
 
-        if (input.playerControls.Interact.ReadValue<float>() > 0)
-        {
-            inputData.interact = true;
-        }
-        else
-        {
-            inputData.interact = false;
-        }
+        input.playerControls.Interact.performed += DoInteract;
+    }
+
+    private void DoInteract(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        CurrentInteractAction?.Invoke(this);
+        CurrentInteractAction = null;
     }
 
     //protected override void Move(Vector2 directionalInput) { }
@@ -101,10 +94,5 @@ public class PlayerController : EntityController
     protected virtual void DoAbility(int index)
     {
         //Debug.Log("Use Ability: " + index);
-    }
-
-    private void DoInteract()
-    {
-        CurrentInteractAction?.Invoke(this);
     }
 }

@@ -64,12 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     public void showInteractPrompt()
     {
-        showInteractPrompt(Vector3.zero);
-    }
-
-    public void showInteractPrompt(Vector3 position)
-    {
-        _interactPrompt.show(position);
+        _interactPrompt.show();
     }
 
     public void hideInteractPrompt()

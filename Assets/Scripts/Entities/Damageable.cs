@@ -7,6 +7,10 @@ public class Damageable : MonoBehaviour
     public int health;
     public int maxHealth;
 
+    public OnHealthUpdated HealthUpdatedEvent;
+
+    public delegate void OnHealthUpdated(float amount);
+
     private void Start()
     {
         health = maxHealth;
@@ -18,6 +22,8 @@ public class Damageable : MonoBehaviour
             amount = health;
 
         health -= amount;
+
+        HealthUpdatedEvent.Invoke(health / maxHealth);
 
         if (health <= 0)
             DoDie();
@@ -36,6 +42,8 @@ public class Damageable : MonoBehaviour
             amount = maxHealth - health;
 
         health += amount;
+
+        HealthUpdatedEvent.Invoke(health / maxHealth);
 
         return amount;
     }
