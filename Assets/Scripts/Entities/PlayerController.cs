@@ -14,16 +14,21 @@ public class InputData
 
 public class PlayerController : EntityController
 {
+    public event Action<int> onUseAbility;
+    public Action CurrentInteractAction;
+
     [SerializeField]
     private CameraController cameraPrefab;
+    [SerializeField]
+    private AbilityBase[] abilities;
 
     [NonSerialized]
     public bool inputEnabled;
 
-    public Action CurrentInteractAction;
+
 
     private Input input;
-    private InputData inputData;
+    public InputData inputData;
 
     protected override void Start()
     {
@@ -87,14 +92,16 @@ public class PlayerController : EntityController
         {
             inputData.interact = false;
         }
-
-
     }
 
     //protected override void Move(Vector2 directionalInput) { }
 
     protected virtual void DoAbility(int index)
     {
+        if(abilities.Length >= index)
+            abilities[index - 1]?.DoUse();
+
+        onUseAbility?.Invoke(index);
         //Debug.Log("Use Ability: " + index);
     }
 

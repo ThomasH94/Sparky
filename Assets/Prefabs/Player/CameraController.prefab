@@ -127,5 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc0471360e32ff41b1a86927c0f8ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  followSpeed: 3
+  followSpeed: 5
