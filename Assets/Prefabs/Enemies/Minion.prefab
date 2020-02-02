@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 8406860374875292081}
   - component: {fileID: 8406860374875292080}
   - component: {fileID: 123004934974036581}
+  - component: {fileID: 7901915387483330161}
   m_Layer: 9
   m_Name: Minion
   m_TagString: Untagged
@@ -965,7 +966,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8406860374875292047}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 500
   m_UseGravity: 1
@@ -982,7 +983,7 @@ SphereCollider:
   m_GameObject: {fileID: 8406860374875292047}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.53
   m_Center: {x: 0, y: 1.01, z: 0}
@@ -1008,6 +1009,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &7901915387483330161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406860374875292047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78, y: 1.7137222, z: 1.1731834}
+  m_Center: {x: 0, y: 0.89740086, z: 0.08659172}
 --- !u!1 &8406860375523916190
 GameObject:
   m_ObjectHideFlags: 0
