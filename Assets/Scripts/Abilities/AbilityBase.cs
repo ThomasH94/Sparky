@@ -10,8 +10,11 @@ public abstract class AbilityBase : MonoBehaviour
 
     private IEnumerator cooldownTimerRoutine;
 
-    public virtual void DoUse(PlayerController player_)
+    public virtual void DoUse()
     {
+        if (cooldownTimerRoutine != null)
+            StopCoroutine(cooldownTimerRoutine);
+
         cooldownTimerRoutine = CooldownTimer(cooldown);
         StartCoroutine(cooldownTimerRoutine);
     }

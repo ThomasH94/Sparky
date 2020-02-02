@@ -9,6 +9,7 @@ public class Damageable : MonoBehaviour
     public int maxHealth;
     public bool isDead;
 
+    public event Action<int> onDamaged;
     public event Action onDied;
 
     public OnHealthUpdated HealthUpdatedEvent;
@@ -27,6 +28,7 @@ public class Damageable : MonoBehaviour
 
         health -= amount;
 
+        onDamaged?.Invoke(amount);
         HealthUpdatedEvent?.Invoke((float)health / maxHealth);
         Debug.Log(gameObject.name + " took damage: " + amount);
 

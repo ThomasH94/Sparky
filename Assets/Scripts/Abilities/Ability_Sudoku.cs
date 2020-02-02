@@ -3,13 +3,15 @@
 public class Ability_Sudoku : AbilityBase
 {
     int damage = 10;
+    [SerializeField]
+    private Damageable target; 
 
-    public override void DoUse(PlayerController player_)
+    public override void DoUse()
     {
         if (cooldownRemaining > 0)
             return;
 
-        player_.DoDamage(damage);
+        target.DoDamage(damage);
 
         Debug.Log("DISHONOR UPON MY FAMILY");
     }

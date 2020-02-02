@@ -7,29 +7,29 @@ public class Ability_Swipe : AbilityBase
     [SerializeField]
     private int damage;
     [SerializeField]
-    private LayerMask enemyMask;
+    private LayerMask targetMask;
 
-    public List<EnemyBase> enemiesInRange = new List<EnemyBase>();
+    public List<EntityController> targetsInRange = new List<EntityController>();
 
-    public override void DoUse(PlayerController player_)
+    public override void DoUse()
     {
-        base.DoUse(player_);
+        base.DoUse();
 
-        foreach (EnemyBase enemy in enemiesInRange)
+        foreach (EntityController target in targetsInRange)
         {
-            enemy.DoDamage(damage);
+            target.DoDamage(damage);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            enemiesInRange.Add(other.GetComponent<EnemyBase>());
+        if (targetMask == (targetMask | (1 << other.gameObject.layer)))
+            targetsInRange.Add(other.GetComponent<EntityController>());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == enemyMask)
-            enemiesInRange.Remove(other.GetComponent<EnemyBase>());
+        if (targetMask == (targetMask | (1 << other.gameObject.layer)))
+            targetsInRange.Remove(other.GetComponent<EntityController>());
     }
 }
