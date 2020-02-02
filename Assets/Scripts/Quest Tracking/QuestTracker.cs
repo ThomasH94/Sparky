@@ -25,21 +25,22 @@ public class QuestTracker : MonoBehaviour
     private void Start()
     {
         endCard = endGameScreen.GetComponentInChildren<Image>();
+        endGameScreen.SetActive(false);
     }
 
     public void IncreasePartsCollected()
     {
-
+        collectedRobotParts++;
     }
 
     public void IncreaseEnemyDefeatedCount()
     {
-
+        enemiesDefeated++;
     }
 
     public void IncreaseBossesDefeated()
     {
-
+        bossesDefeated++;
     }
 
     public void CheckForEnding()
