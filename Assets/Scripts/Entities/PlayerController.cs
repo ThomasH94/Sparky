@@ -20,7 +20,14 @@ public class PlayerController : EntityController
     [NonSerialized]
     public bool inputEnabled;
 
-    public Action CurrentInteractAction;
+    [SerializeField]
+    private PlayerInventory _playerInventory;
+    public PlayerInventory PlayerInventory {
+        get => _playerInventory;
+    }
+
+    public Action<PlayerController> CurrentInteractAction;
+
 
     public void Start()
     {
@@ -79,8 +86,6 @@ public class PlayerController : EntityController
         {
             inputData.interact = false;
         }
-
-
     }
 
     //protected override void Move(Vector2 directionalInput) { }
@@ -92,6 +97,6 @@ public class PlayerController : EntityController
 
     private void DoInteract()
     {
-        CurrentInteractAction?.Invoke();
+        CurrentInteractAction?.Invoke(this);
     }
 }

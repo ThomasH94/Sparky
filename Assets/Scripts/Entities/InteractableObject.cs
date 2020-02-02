@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class InteractableObject : EntityController {
-
+public class InteractableObject : EntityController
+{
     private PlayerController _playerController = null;
 
     [SerializeField]
@@ -10,23 +10,27 @@ public class InteractableObject : EntityController {
     [SerializeField]
     private Transform interactPromptPosition;
 
-    private void OnTriggerEnter2D(Collider2D other) {
-
+    private void OnTriggerEnter(Collider other)
+    {
         _playerController = other.GetComponent<PlayerController>();
 
-        if (_playerController) {
+        if (_playerController)
+        {
             _playerController.CurrentInteractAction = InteractAction;
         }
 
         if (showInteractionPrompt)
         {
+            Vector3 promptPosition = interactPromptPosition? interactPromptPosition.position: transform.position;
+
             DialogueManager.Instance.showInteractPrompt(interactPromptPosition.position);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-
-        if (_playerController) {
+    private void OnTriggerExit(Collider other)
+    {
+        if (_playerController)
+        {
             _playerController.CurrentInteractAction = null;
             _playerController = null;
         }
@@ -34,8 +38,8 @@ public class InteractableObject : EntityController {
         DialogueManager.Instance.hideInteractPrompt();
     }
 
-    public virtual void InteractAction() {
+    public virtual void InteractAction(PlayerController player)
+    {
 
     }
-
 }

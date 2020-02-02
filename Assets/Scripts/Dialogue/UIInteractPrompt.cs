@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class InteractPrompt : UIPrompt
+public class UIInteractPrompt : UIPrompt
 {
     public override void show(params object[] args)
     {
