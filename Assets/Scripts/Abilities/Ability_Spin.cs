@@ -14,12 +14,12 @@ public class Ability_Spin : AbilityBase
     [SerializeField]
     private GameObject[] sawColliders;
 
-    private bool isSpinning;
+    public bool isSpinning;
 
     public override void DoUse()
     {
         base.DoUse();
-        Debug.Log("Use spoin");
+
         controller.moveSpeed = 10f;
         controller.agent.SetDestination(controller.player.position);
 
@@ -32,17 +32,26 @@ public class Ability_Spin : AbilityBase
 
     private void FixedUpdate()
     {
-        Debug.Log(controller.agent.destination);
         if (controller.isAtDestination && isSpinning)
         {
-            controller.moveSpeed = 0f;
-            controller.agent.SetDestination(transform.position);
             isSpinning = false;
-            controller.ToggleSpinning(false);
-
-            foreach (var o in sawColliders)
-                o.SetActive(false);
+            //Debug.Log("Reached it");
+            StartCoroutine(DelayEndSpin());
         }
+    }
+
+    private IEnumerator DelayEndSpin()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        //Debug.Log("stop");
+        controller.moveSpeed = 0f;
+        controller.agent.SetDestination(transform.position);
+        
+        controller.ToggleSpinning(false);
+
+        foreach (var o in sawColliders)
+            o.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

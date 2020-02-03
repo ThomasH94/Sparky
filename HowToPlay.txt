@@ -1,0 +1,6 @@
+==== HOW TO PLAY ====
+
+WASD - Move in 8 directions
+Escape Key - Quit
+Left Mouse - Attack
+Enter - Restart

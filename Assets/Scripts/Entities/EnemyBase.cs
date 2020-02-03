@@ -11,6 +11,9 @@ public abstract class EnemyBase : EntityController
     [SerializeField]
     protected float attackRange = 2f;
 
+    [SerializeField]
+    protected GameObject dropPrefab;
+
     public bool isInAttackRange;
     public bool isAtDestination;
     public bool detectedPlayer;
@@ -84,6 +87,7 @@ public abstract class EnemyBase : EntityController
         detectedPlayer = false;
         player = null;
         agent.destination = transform.position;
+        Instantiate(dropPrefab, transform.position, Quaternion.identity);
     }
 
     protected virtual void OnPlayerDied()

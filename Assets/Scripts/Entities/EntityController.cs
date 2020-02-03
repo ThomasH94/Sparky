@@ -15,6 +15,8 @@ public class EntityController : Damageable
     //[HideInInspector]
     public float moveSpeed = 10f;
     public float baseMoveSpeed = 10f;
+    public float damageScale = 1;
+
 
     [SerializeField]
     protected float rotSpeed = 2f;
@@ -25,7 +27,6 @@ public class EntityController : Damageable
 
     [SerializeField]
     protected AbilityBase[] abilities;
-
 
     protected virtual void Reset()
     {

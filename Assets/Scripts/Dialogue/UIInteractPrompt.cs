@@ -15,7 +15,7 @@ public class UIInteractPrompt : UIPrompt
             }
         }
 
-        mainObject.transform.position = position;
+        //mainObject.transform.position = position;
 
         base.show();
     }

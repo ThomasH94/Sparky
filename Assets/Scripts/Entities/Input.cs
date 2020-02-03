@@ -89,6 +89,22 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""42901974-48c2-4a24-b2c1-f69f0a94ccbc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""947d09eb-8779-4c3f-ae6d-eb9f5449f08c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -232,6 +248,28 @@ public class @Input : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b6a823b-43d9-4697-9d44-975362b7a6be"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02de85d8-2871-42d8-99ed-815e7fde6c6e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -771,6 +809,8 @@ public class @Input : IInputActionCollection, IDisposable
         m_playerControls_use5 = m_playerControls.FindAction("use5", throwIfNotFound: true);
         m_playerControls_use6 = m_playerControls.FindAction("use6", throwIfNotFound: true);
         m_playerControls_Interact = m_playerControls.FindAction("Interact", throwIfNotFound: true);
+        m_playerControls_Reset = m_playerControls.FindAction("Reset", throwIfNotFound: true);
+        m_playerControls_Quit = m_playerControls.FindAction("Quit", throwIfNotFound: true);
         // userInterface
         m_userInterface = asset.FindActionMap("userInterface", throwIfNotFound: true);
         m_userInterface_Navigate = m_userInterface.FindAction("Navigate", throwIfNotFound: true);
@@ -842,6 +882,8 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_playerControls_use5;
     private readonly InputAction m_playerControls_use6;
     private readonly InputAction m_playerControls_Interact;
+    private readonly InputAction m_playerControls_Reset;
+    private readonly InputAction m_playerControls_Quit;
     public struct PlayerControlsActions
     {
         private @Input m_Wrapper;
@@ -855,6 +897,8 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @use5 => m_Wrapper.m_playerControls_use5;
         public InputAction @use6 => m_Wrapper.m_playerControls_use6;
         public InputAction @Interact => m_Wrapper.m_playerControls_Interact;
+        public InputAction @Reset => m_Wrapper.m_playerControls_Reset;
+        public InputAction @Quit => m_Wrapper.m_playerControls_Quit;
         public InputActionMap Get() { return m_Wrapper.m_playerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -891,6 +935,12 @@ public class @Input : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteract;
+                @Reset.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReset;
+                @Quit.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -922,6 +972,12 @@ public class @Input : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -1059,6 +1115,8 @@ public class @Input : IInputActionCollection, IDisposable
         void OnUse5(InputAction.CallbackContext context);
         void OnUse6(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
     public interface IUserInterfaceActions
     {
