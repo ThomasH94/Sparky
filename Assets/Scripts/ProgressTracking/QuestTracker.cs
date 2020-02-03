@@ -15,8 +15,8 @@ public class QuestTracker : MonoBehaviour
     private void Awake() { Instance = this; }
     #endregion
 
-    [SerializeField]
-    private int genocideThreshold = 40;
+    //[SerializeField]
+    //private int genocideThreshold = 40;
 
     public int enemiesDefeated;
     public int bossesDefeated;
@@ -30,6 +30,7 @@ public class QuestTracker : MonoBehaviour
     private int _possibleEndings = 3;
 
     public bool ranAway { get; set; }
+    public bool badBoi { get; set; }
 
     public bool batteryMissionComplete { get; set; }
     public bool legMissionComplete { get; set; }
@@ -71,7 +72,7 @@ public class QuestTracker : MonoBehaviour
                 // grey Ending
                 currentEnding = 2;
             }
-            else if(enemiesDefeated > genocideThreshold)
+            else if(badBoi)
             {
                 // bad Ending
                 currentEnding = 1;
@@ -86,5 +87,7 @@ public class QuestTracker : MonoBehaviour
         _goodEndingScreen.SetActive(ending == 0);
         _badEndingScreen.SetActive(ending == 1);
         _greyEndingScreen.SetActive(ending == 2);
+
+        _endGameScreen.SetActive(true);
     }
 }

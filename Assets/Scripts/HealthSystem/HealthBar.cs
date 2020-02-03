@@ -60,7 +60,7 @@ public class HealthBar : FillStatusBar
         {
             int max = _damageableEntityReference.maxHealth;
             int hp = _damageableEntityReference.health;
-            _healthText.text = $"HEALTH: {max} / {hp}";
+            _healthText.text = $"HEALTH: {hp} / {max}";
         }
     }
 

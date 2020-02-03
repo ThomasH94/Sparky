@@ -93,6 +93,7 @@ public class NPCController : InteractableObject {
         if (_tracker._allMissionsComplete)
         {
             _tracker.CheckForEnding();
+            return;
         }
 
         string response = "";
@@ -111,10 +112,10 @@ public class NPCController : InteractableObject {
                 response += "\nYour <color=#0ff>speed</color> has been upgraded! ";
             }
 
-            if (!_tracker.legMissionComplete && _playerHasScrap)
-            {
-                response += "\nYour <color=#0ff>attack</color> has been upgraded! ";
-            }
+            //if (!_tracker.legMissionComplete && _playerHasScrap)
+            //{
+            //    response += "\nYour <color=#0ff>attack</color> has been upgraded! ";
+            //}
 
             _buddyAnimator.Play("happy");
         }
@@ -132,7 +133,7 @@ public class NPCController : InteractableObject {
                 response += "my <color=#0ff>[leg]</color> ";
             }
 
-            if (!_tracker.legMissionComplete)
+            if (!_tracker.scrapMissionComplete)
             {
                 response += $"my <color=#0ff>[{_scrapRequirement} scrap pieces]</color> ";
             }
@@ -142,7 +143,7 @@ public class NPCController : InteractableObject {
             _buddyAnimator.Play("sad");
         }
 
-        DialogueManager.Instance.ShowDialogue(response, 4);
+        DialogueManager.Instance.ShowDialogue(response, 6);
     }
 
     private void CheckPlayerInventory()
@@ -193,10 +194,10 @@ public class NPCController : InteractableObject {
             _tracker.legMissionComplete = true;
         }
 
-        if (!_tracker.legMissionComplete && _playerHasScrap)
+        if (!_tracker.scrapMissionComplete && _playerHasScrap)
         {
             upgradePlayerDamage();
-            _tracker.legMissionComplete = true;
+            _tracker.scrapMissionComplete = true;
         }
     }
 
@@ -216,13 +217,15 @@ public class NPCController : InteractableObject {
 
     private void upgradePlayerDamage()
     {
-        //_player.attack += _scrapDamageUpgrade;
+        //_player. += _scrapDamageUpgrade;
         _player.health = _player.maxHealth;
     }
 
     public override void DoDie()
     {
         base.DoDie();
-        //gameover
+
+        _tracker.badBoi = true;
+        _tracker.CheckForEnding();
     }
 }
