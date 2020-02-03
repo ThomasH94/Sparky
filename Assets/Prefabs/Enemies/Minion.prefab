@@ -946,6 +946,7 @@ MonoBehaviour:
   isDead: 0
   moveSpeed: 10
   baseMoveSpeed: 5
+  damageScale: 1
   rotSpeed: 2
   body: {fileID: 8406860374875292081}
   abilities:
@@ -955,6 +956,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRange: 3.5
+  dropPrefab: {fileID: 7457570716544617454, guid: 71279428e0b6548f8827b8d942d50248,
+    type: 3}
   isInAttackRange: 0
   isAtDestination: 0
   detectedPlayer: 0
