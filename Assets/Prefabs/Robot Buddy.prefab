@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851827172156402119}
-  m_LocalRotation: {x: 0.00054649235, y: 0.9705728, z: 0.24079731, w: -0.002202727}
-  m_LocalPosition: {x: 0.003, y: 1.388, z: 0.735}
+  m_LocalRotation: {x: 0.000265792, y: 0.99311167, z: 0.1171503, w: -0.0022531748}
+  m_LocalPosition: {x: 0.003, y: 1.69, z: 0.735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7813047312350571182}
   m_Father: {fileID: 4851827172550420684}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -27.867, y: 180.26, z: 0}
+  m_LocalEulerAnglesHint: {x: -13.455001, y: 180.26, z: 0}
 --- !u!1 &4851827172234044430
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714d19054ae314162913620e6cb7df20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 690
-  maxHealth: 690
+  health: 69
+  maxHealth: 69
   isDead: 0
   moveSpeed: 10
   baseMoveSpeed: 10

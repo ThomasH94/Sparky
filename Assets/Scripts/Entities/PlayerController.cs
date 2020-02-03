@@ -98,4 +98,15 @@ public class PlayerController : EntityController
         input.Disable();
         inputEnabled = false;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("OutOfBounds"))
+        {
+            //Debug.LogError("Out");
+
+            QuestTracker.Instance.ranAway = true;
+            QuestTracker.Instance.CheckForEnding();
+        }
+    }
 }

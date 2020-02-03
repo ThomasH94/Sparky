@@ -21,11 +21,10 @@ public class TriggerBossBattle : MonoBehaviour
         if(collider.GetComponent<PlayerController>())
         {
             CloseDoor();
+
+            audioPlayer.PlayAudioForBoss();
+            audioPlayer.canTrigger = false;
         }
-
-        audioPlayer.PlayAudioForBoss();
-        audioPlayer.canTrigger = false;
-
     }
 
     public void CloseDoor()
