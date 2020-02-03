@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 public class HealthBar : FillStatusBar
 {
     [SerializeField, Space]
     private Damageable _damageableEntityReference;
+
+    [SerializeField]
+    private TMP_Text _healthText;
 
     [SerializeField]
     private Color _healthColor = Color.cyan;
@@ -51,6 +55,13 @@ public class HealthBar : FillStatusBar
     private void onHealthUpdated(float amount)
     {
         SetFill(amount);
+
+        if (_healthText)
+        {
+            int max = _damageableEntityReference.maxHealth;
+            int hp = _damageableEntityReference.health;
+            _healthText.text = $"HEALTH: {max} / {hp}";
+        }
     }
 
     public override void BindSlider()
@@ -66,5 +77,4 @@ public class HealthBar : FillStatusBar
 
         base.BindSlider();
     }
-
 }

@@ -9,28 +9,47 @@ using UnityEngine.UI;
 /// </summary>
 public class QuestTracker : MonoBehaviour
 {
-    public int collectedRobotParts;
-    private const int TOTAL_ROBOT_PARTS = 3;
+    #region Singleton
+    public static QuestTracker Instance;
+
+    private void Awake() { Instance = this; }
+    #endregion
+
+    [SerializeField]
+    private int genocideThreshold = 40;
 
     public int enemiesDefeated;
     public int bossesDefeated;
 
-    #region UI
-    public GameObject endGameScreen;
-    private Image endCard;
-    private TextMeshProUGUI endGameText;
-    public Sprite goodEndingSprite, badendingSprite, greyEndingSprite;
-    #endregion
+    [SerializeField]
+    private GameObject _endGameScreen;
+
+    [SerializeField]
+    private GameObject _goodEndingScreen, _badEndingScreen, _greyEndingScreen;
+
+    private int _possibleEndings = 3;
+
+    public bool ranAway { get; set; }
+
+    public bool batteryMissionComplete { get; set; }
+    public bool legMissionComplete { get; set; }
+    public bool scrapMissionComplete{ get; set; }
+
+    public bool _anyMissionComplete
+    {
+        get { return batteryMissionComplete || legMissionComplete || scrapMissionComplete; }
+    }
+
+    public bool _allMissionsComplete
+    {
+        get { return batteryMissionComplete && legMissionComplete && scrapMissionComplete; }
+    }
+
+    private int currentEnding;
 
     private void Start()
     {
-        endCard = endGameScreen.GetComponentInChildren<Image>();
-        endGameScreen.SetActive(false);
-    }
-
-    public void IncreasePartsCollected()
-    {
-        collectedRobotParts++;
+        _endGameScreen.SetActive(false);
     }
 
     public void IncreaseEnemyDefeatedCount()
@@ -38,32 +57,34 @@ public class QuestTracker : MonoBehaviour
         enemiesDefeated++;
     }
 
-    public void IncreaseBossesDefeated()
-    {
-        bossesDefeated++;
-    }
-
     public void CheckForEnding()
     {
-        if(enemiesDefeated <= 0)
+        if (_allMissionsComplete)
         {
-            if(bossesDefeated <= 0)
+            // Good Ending
+            currentEnding = 0;
+        }
+        else 
+        {
+            if (ranAway)
             {
-                // Good Ending
-                endCard.sprite = goodEndingSprite;
+                // grey Ending
+                currentEnding = 2;
+            }
+            else if(enemiesDefeated > genocideThreshold)
+            {
+                // bad Ending
+                currentEnding = 1;
             }
         }
-        else if(enemiesDefeated > 1 && enemiesDefeated < 10 || bossesDefeated > 1 && bossesDefeated < 3)
-        {
-            // Grey Ending
-            endCard.sprite = greyEndingSprite;
-        }
-        else
-        {
-            // Bad Ending
-            endCard.sprite = badendingSprite;
-        }
 
-        endGameScreen.SetActive(true);
+        ShowEnding(currentEnding);
+    }
+
+    private void ShowEnding(int ending)
+    {
+        _goodEndingScreen.SetActive(ending == 0);
+        _badEndingScreen.SetActive(ending == 1);
+        _greyEndingScreen.SetActive(ending == 2);
     }
 }

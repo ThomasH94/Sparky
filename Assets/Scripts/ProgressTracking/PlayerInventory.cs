@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerInventory
 {
-    private Dictionary<string, int> inventory = new Dictionary<string, int>();
-
-    public void addItem(string item)
-    {
-        if (!inventory.ContainsKey(item))
-        {
-            inventory.Add(item, 0);
-        }
-
-        inventory[item]++;
+    private Dictionary<RobotPartType, int> _inventory = new Dictionary<RobotPartType, int>();
+    public Dictionary<RobotPartType, int> Inventory {
+        get => _inventory;
     }
 
+    public void addItem(RobotPartType item)
+    {
+        if (!_inventory.ContainsKey(item))
+        {
+            _inventory.Add(item, 0);
+        }
 
+        _inventory[item]++;
+
+        Debug.Log($"picked up {item.ToString()}. total: {_inventory[item]}");
+    }
 }

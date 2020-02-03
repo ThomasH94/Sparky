@@ -18,11 +18,11 @@ public class InteractableObject : EntityController
         if (_playerController)
         {
             _playerController.CurrentInteractAction = InteractAction;
-        }
 
-        if (showInteractionPrompt)
-        {
-            DialogueManager.Instance.showInteractPrompt();
+            if (showInteractionPrompt)
+            {
+                DialogueManager.Instance.showInteractPrompt();
+            }
         }
     }
 
@@ -39,6 +39,6 @@ public class InteractableObject : EntityController
 
     public virtual void InteractAction(PlayerController player)
     {
-
+        DialogueManager.Instance.hideInteractPrompt();
     }
 }

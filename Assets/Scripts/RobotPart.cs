@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum RobotPartType
 {
-    Arm,
+    Battery,
     Leg,
-    Heart
+    Scrap
 }
 
 /// <summary>
@@ -18,10 +18,11 @@ public class RobotPart : InteractableObject
 
     public override void InteractAction(PlayerController player)
     {
-        player.PlayerInventory.addItem(partType.ToString());
+        base.InteractAction(player);
 
-        //todo: fancy celebration or somethin
-        Debug.Log($"YOU GOT THE {partType}!!");
+        player.PlayerInventory.addItem(partType);
+
+        DialogueManager.Instance.ShowDialogue($"YOU GOT THE <color=#0ff>{partType.ToString()}</color>!! Return it to the robot buddy at the base.", 4);
 
         Destroy(gameObject);
     }
