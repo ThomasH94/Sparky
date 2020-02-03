@@ -30,6 +30,8 @@ public class PlayerController : EntityController
         get => _playerInventory;
     }
 
+    private Vector3 spawnPosition;
+
     public Input input;
     protected override void Start()
     {
@@ -53,6 +55,9 @@ public class PlayerController : EntityController
         input.playerControls.use4.performed += context => DoAbility(4);
         input.playerControls.use5.performed += context => DoAbility(5);
         input.playerControls.use6.performed += context => DoAbility(6);
+
+        input.playerControls.Reset.performed += context => transform.position = new Vector3(spawnPosition.x, 2f, spawnPosition.z);
+        input.playerControls.Quit.performed += context => Application.Quit();
 
         input.playerControls.Interact.performed += DoInteract;
 
