@@ -49,6 +49,20 @@ public class EntityController : Damageable
         }
     }
 
+    public override void DoDie()
+    {
+        // Disable our RigidBody on death
+        base.DoDie();
+    }
+
+    /*
+    protected IEnumerator DieRoutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        gameObject.SetActive(false);
+    }
+    */
+
     //protected virtual void SetFacingDirection(Vector2 dir)
     //{
     //    if (dir.y > .01f)

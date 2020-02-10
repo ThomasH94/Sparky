@@ -21,10 +21,20 @@ public abstract class EnemyBase : EntityController
 
     protected IEnumerator losePlayerRoutine;
 
+    #region Flashing
+    [SerializeField] protected Renderer enemyRenderer;
+    bool isFlashing = false;
+    #endregion
+
     protected override void Start()
     {
         base.Start();
         agent.destination = transform.position;
+        enemyRenderer = GetComponentInChildren<Renderer>();
+        if(enemyRenderer == null)
+        {
+            Debug.Log("Enemy material not found on " + gameObject.name);
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -81,6 +91,39 @@ public abstract class EnemyBase : EntityController
         player = null;
     }
 
+    public override int DoDamage(int amount)
+    {
+        base.DoDamage(amount);
+        if(!isDead)
+        StartCoroutine(FlashRoutine());
+
+        return amount;
+    }
+
+    protected virtual IEnumerator FlashRoutine()
+    {
+        Color flashColor = Color.red;
+        Color baseColor = enemyRenderer.material.color;
+
+        if(!isFlashing)
+        {
+            isFlashing = true;
+            enemyRenderer.material.color = flashColor;
+            yield return new WaitForSeconds(0.1f);
+            enemyRenderer.material.color = baseColor;
+            yield return new WaitForSeconds(0.1f);
+            enemyRenderer.material.color = flashColor;
+            yield return new WaitForSeconds(0.1f);
+            enemyRenderer.material.color = baseColor;
+             yield return new WaitForSeconds(0.1f);
+            enemyRenderer.material.color = flashColor;
+            yield return new WaitForSeconds(0.1f);
+            enemyRenderer.material.color = baseColor;
+            isFlashing = false;
+        }
+
+    }
+
     public override void DoDie()
     {
         base.DoDie();
@@ -88,6 +131,7 @@ public abstract class EnemyBase : EntityController
         player = null;
         agent.destination = transform.position;
         Instantiate(dropPrefab, transform.position, Quaternion.identity);
+        body = null;
     }
 
     protected virtual void OnPlayerDied()
