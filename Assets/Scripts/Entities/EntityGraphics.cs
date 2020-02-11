@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EntityGraphics : MonoBehaviour
 {
-    //[SerializeField]
-    //protected EntityController controller;
+    [SerializeField]
+    protected Animator anim;
 
-    //protected virtual void Start()
-    //{
-    //    controller
-    //}
-
-    //protected virtual void UpdateFacingDirection(FacingDirection newDir) { }
+    public void PlayAnimation(string setTrigger)
+    {
+        anim?.SetTrigger(setTrigger);
+    }
 }

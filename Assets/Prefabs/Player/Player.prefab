@@ -1105,10 +1105,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0.3
   cooldownRemaining: 0
+  entityController: {fileID: 6865602635264026958}
+  entityGraphics: {fileID: 6866146233726907636}
   damage: 10
   targetMask:
     serializedVersion: 2
     m_Bits: 512
+  abilityAnimation: swipe
   targetsInRange: []
 --- !u!135 &5021529594081160563
 SphereCollider:
@@ -1267,13 +1270,15 @@ MonoBehaviour:
   isDead: 0
   moveSpeed: 0.4
   baseMoveSpeed: 10
+  damageScale: 1
   rotSpeed: 0.3
   body: {fileID: 2673259679032771340}
   abilities:
   - {fileID: 420534921714678671}
   - {fileID: 1679721566}
-  cameraPrefab: {fileID: 7414341009291664830, guid: 75e39fd94d0c21a41a21fa21d76d7dc0,
+  currentPrefab: {fileID: 7414341009291664830, guid: 75e39fd94d0c21a41a21fa21d76d7dc0,
     type: 3}
+  currentCamera: {fileID: 0}
 --- !u!54 &2673259679032771340
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1516,8 +1521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f12e7b64ee9b5644a8f9ae0c1380145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 6865602635264026958}
   anim: {fileID: 3591654547857867605}
+  controller: {fileID: 6865602635264026958}
 --- !u!1 &8227035759297795156
 GameObject:
   m_ObjectHideFlags: 0

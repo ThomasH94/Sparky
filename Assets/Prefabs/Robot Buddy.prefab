@@ -175,6 +175,7 @@ MonoBehaviour:
   isDead: 0
   moveSpeed: 10
   baseMoveSpeed: 10
+  damageScale: 1
   rotSpeed: 2
   body: {fileID: 4851827172550420682}
   abilities: []
@@ -185,10 +186,11 @@ MonoBehaviour:
   _scrapPartComplete: {fileID: 0}
   _batteryRequirement: 1
   _legRequirement: 1
-  _scrapRequirement: 20
+  _scrapRequirement: 30
+  _scrapUpgradeInterval: 10
   _batteryHealthUpgrade: 50
   _legSpeedUpgrade: 5
-  _scrapDamageUpgrade: 3000
+  _scrapDamageUpgrade: 3
 --- !u!54 &4851827172550420682
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -15,8 +15,5 @@ public class PickupObject : MonoBehaviour
         }
     }
 
-    public virtual void onPickup(PlayerController player)
-    {
-
-    }
+    public virtual void onPickup(PlayerController player) { }
 }

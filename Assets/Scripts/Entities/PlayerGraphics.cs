@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGraphics : MonoBehaviour
+public class PlayerGraphics : EntityGraphics
 {
     [SerializeField]
     private PlayerController controller;
-    [SerializeField]
-    private Animator anim;
 
     private void Start()
     {
-        controller.onUseAbility += OnUseAbility;
+        //controller.onUseAbility += OnUseAbility;
         controller.onDied += () => anim.SetTrigger("die");
     }
 
@@ -20,11 +18,11 @@ public class PlayerGraphics : MonoBehaviour
         anim.SetBool("isWalking", controller.input.playerControls.directional.ReadValue<Vector2>() != Vector2.zero);
     }
 
-    private void OnUseAbility(int index)
-    {
-        if (index == 1)
-            anim.SetTrigger("swipeAttack");
-    }
+    //private void OnUseAbility(int index)
+    //{
+    //    if (index == 1)
+    //        anim.SetTrigger("swipeAttack");
+    //}
 
     //protected override void UpdateFacingDirection(FacingDirection newDir)
     //{

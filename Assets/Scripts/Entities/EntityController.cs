@@ -3,24 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//public enum FacingDirection
-//{
-//    Down, Left, Up, Right
-//}
-
 public class EntityController : Damageable
 {
     public event Action<int> onUseAbility;
-    //public Action<FacingDirection> onFacingDirectionUpdated;
-    //[HideInInspector]
+
+    public PlayerGraphics Animator { get; set; }
+
     public float moveSpeed = 10f;
     public float baseMoveSpeed = 10f;
     public float damageScale = 1;
 
-
     [SerializeField]
     protected float rotSpeed = 2f;
-    //public FacingDirection facingDirection;
 
     [SerializeField]
     protected Rigidbody body = null;
@@ -48,18 +42,4 @@ public class EntityController : Damageable
             onUseAbility?.Invoke(number);
         }
     }
-
-    //protected virtual void SetFacingDirection(Vector2 dir)
-    //{
-    //    if (dir.y > .01f)
-    //        facingDirection = FacingDirection.Up;
-    //    else if (dir.y < -.01f)
-    //        facingDirection = FacingDirection.Down;
-    //    else if (dir.x > .01f)
-    //        facingDirection = FacingDirection.Right;
-    //    else if (dir.x < -.01f)
-    //        facingDirection = FacingDirection.Left;
-
-    //    onFacingDirectionUpdated?.Invoke(facingDirection);
-    //}
 }

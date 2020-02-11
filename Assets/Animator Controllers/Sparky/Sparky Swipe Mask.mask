@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sparky Swipe Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: LizardPelvis
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardLLegThigh
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2/LizardLLegDigit01
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2/LizardLLegDigit11
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2/LizardLLegDigit21
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardRRearLegThigh
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2/LizardRRearLegDigit01
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2/LizardRRearLegDigit11
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2/LizardRRearLegDigit21
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone/LizardLFrontLegUpper
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone/LizardLFrontLegUpper/LizardLFrontLegLower
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone/LizardLFrontLegUpper/LizardLFrontLegLower/LizardLFrontLegPalm2
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone/LizardLFrontLegUpper/LizardLFrontLegLower/LizardLFrontLegPalm2/LizardLFrontLegDigit01
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone/LizardLFrontLegUpper/LizardLFrontLegLower/LizardLFrontLegPalm2/LizardLFrontLegDigit11
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardLFrontLegCollarbone/LizardLFrontLegUpper/LizardLFrontLegLower/LizardLFrontLegPalm2/LizardLFrontLegDigit21
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardNeck1
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardNeck1/LizardNeck2
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardNeck1/LizardNeck2/LizardHead
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardNeck1/LizardNeck2/LizardHead/LizardHeadBone001
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardNeck1/LizardNeck2/LizardHead/LizardHeadBone002
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone/LizardRFrontLegUpper
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone/LizardRFrontLegUpper/LizardRFrontLegLower
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone/LizardRFrontLegUpper/LizardRFrontLegLower/LizardRFrontLegPalm2
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone/LizardRFrontLegUpper/LizardRFrontLegLower/LizardRFrontLegPalm2/LizardRFrontLegDigit01
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone/LizardRFrontLegUpper/LizardRFrontLegLower/LizardRFrontLegPalm2/LizardRFrontLegDigit11
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardSpine/LizardRibcage/LizardRFrontLegCollarbone/LizardRFrontLegUpper/LizardRFrontLegLower/LizardRFrontLegPalm2/LizardRFrontLegDigit21
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardTail1
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardTail1/LizardTail2
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardTail1/LizardTail2/LizardTail3
+    m_Weight: 1
+  - m_Path: LizardPelvis/LizardTail1/LizardTail2/LizardTail3/Lizard3Bone001
+    m_Weight: 1
+  - m_Path: Sparky
+    m_Weight: 1
