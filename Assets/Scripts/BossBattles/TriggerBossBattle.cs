@@ -35,11 +35,12 @@ public class TriggerBossBattle : MonoBehaviour
 
     public void OpenDoor()
     {
-        door.transform.eulerAngles = doorRotation;
+        door.transform.eulerAngles = new Vector3(0,-170,0);
         AudioSource source = Camera.main.GetComponent<AudioSource>();
         source.Stop();
         source.clip = mainTheme;
         source.Play();
+        Destroy(gameObject, 0.5f);
     }
 
 

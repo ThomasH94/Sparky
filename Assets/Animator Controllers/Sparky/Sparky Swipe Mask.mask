@@ -12,31 +12,31 @@ AvatarMask:
   - m_Path: 
     m_Weight: 1
   - m_Path: LizardPelvis
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardLLegThigh
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2/LizardLLegDigit01
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2/LizardLLegDigit11
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardLLegThigh/LizardLLegCalf/LizardLLegAnkle2/LizardLLegDigit21
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardRRearLegThigh
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2/LizardRRearLegDigit01
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2/LizardRRearLegDigit11
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardRRearLegThigh/LizardRRearLegCalf/LizardRRearLegAnkle2/LizardRRearLegDigit21
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LizardPelvis/LizardSpine
     m_Weight: 1
   - m_Path: LizardPelvis/LizardSpine/LizardRibcage

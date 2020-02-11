@@ -22,6 +22,16 @@ public class EntityController : Damageable
     [SerializeField]
     protected AbilityBase[] abilities;
 
+    [SerializeField]
+    private float inputBufferTime;
+    
+    private float _inputBufferRetryTime;
+
+    private int _bufferedInput = -1;
+
+    private IEnumerator _bufferedInputRoutine;
+
+
     protected virtual void Reset()
     {
         body = GetComponent<Rigidbody>();
@@ -37,9 +47,73 @@ public class EntityController : Damageable
     {
         if (abilities.Length >= number && abilities[number - 1].cooldownRemaining <= 0)
         {
-            abilities[number - 1].DoUse();
-
-            onUseAbility?.Invoke(number);
+            UseAbility(number);
         }
+        else
+        {
+            _bufferedInput = number;
+            _inputBufferRetryTime = abilities[number - 1].cooldownRemaining;
+            startBufferTimer();
+        }
+    }
+
+    private void UseAbility(int number)
+    {
+        abilities[number - 1].DoUse();
+
+        onUseAbility?.Invoke(number);
+    }
+
+    protected virtual void startBufferTimer()
+    {
+        stopBufferTimer();
+
+        _bufferedInputRoutine = inputBufferTimer();
+        StartCoroutine(_bufferedInputRoutine);
+    }
+
+    protected virtual void stopBufferTimer()
+    {
+        if (_bufferedInputRoutine != null)
+        {
+            StopCoroutine(_bufferedInputRoutine);
+        }
+    }
+
+    private IEnumerator inputBufferTimer()
+    {
+        float bufferTimer = inputBufferTime;
+        float retryTimer = _inputBufferRetryTime;
+
+        while (retryTimer >= 0)
+        {
+            retryTimer -= Time.deltaTime;
+            bufferTimer -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (bufferTimer >= 0)
+        {
+            retryAbility();
+        }
+
+        _bufferedInput = -1;
+    }
+
+    protected virtual void retryAbility()
+    {
+        if (_bufferedInput < 0)
+        {
+            Debug.LogWarning("bufferedInput reset before retrying. this shouldn't happen");
+            return;
+        }
+
+        DoAbility(_bufferedInput);
+    }
+
+    public override void DoDie()
+    {
+        // Disable our RigidBody on death?
+        base.DoDie();
     }
 }

@@ -1,40 +1,68 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityAttack : AbilityBase
 {
     [SerializeField]
-    private EntityController entityController;
+    protected EntityController entityController;
 
     [SerializeField]
-    private EntityGraphics entityGraphics;
+    protected EntityGraphics entityGraphics;
 
     [SerializeField]
-    private int damage;
+    protected int damage;
 
     [SerializeField]
-    private LayerMask targetMask;
+    protected float attackWindup;
 
     [SerializeField]
-    private string abilityAnimation = "attack";
+    protected LayerMask targetMask;
 
     [SerializeField]
-    private List<EntityController> targetsInRange = new List<EntityController>();
+    protected string abilityAnimation = "attack";
+
+    [SerializeField]
+    protected List<EntityController> targetsInRange = new List<EntityController>();
+
+    protected IEnumerator _startDelayTimerRoutine;
 
     public override void DoUse()
     {
         base.DoUse();
 
-        int attackDamage = entityController ? 
-                               (int)(damage * entityController.damageScale) : 
+        if (attackWindup <= 0)
+        {
+            dealDamage();
+        }
+        else
+        {
+            startAttackTimer(dealDamage);
+        }
+
+        PlayAnimation();
+    }
+
+    private void startAttackTimer(Action onComplete_)
+    {
+        if (_startDelayTimerRoutine != null)
+            StopCoroutine(_startDelayTimerRoutine);
+
+        _startDelayTimerRoutine = Utils.cooldownCoroutine(attackWindup, onComplete_);
+        StartCoroutine(_startDelayTimerRoutine);
+    }
+
+    public virtual void dealDamage()
+    {
+        int attackDamage = entityController ?
+                               (int)(damage * entityController.damageScale) :
                                damage;
 
         foreach (EntityController target in targetsInRange)
         {
             target.DoDamage(attackDamage);
         }
-
-        PlayAnimation();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,7 +101,7 @@ public class AbilityAttack : AbilityBase
         return entity;
     }
 
-    public void PlayAnimation()
+    public virtual void PlayAnimation()
     {
         if (entityGraphics == null)
             return;

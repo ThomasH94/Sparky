@@ -28,20 +28,25 @@ public class PlayerController : EntityController
     private Vector3 spawnPosition;
 
     public Input input;
-    protected override void Start()
+
+
+    private void Awake()
     {
-        base.Start();
-        InitializeInput();
-
-        lookAt = new GameObject(gameObject.name + "_LookAt").transform;
-        lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
-
         if (currentCamera == null)
         {
             currentCamera = Instantiate(currentCamera);
         }
 
         currentCamera.Initialize(transform);
+
+        lookAt = new GameObject(gameObject.name + "_LookAt").transform;
+        lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        InitializeInput();
     }
 
     private void InitializeInput()
@@ -65,7 +70,7 @@ public class PlayerController : EntityController
         inputEnabled = true;
     }
 
-    private void DoInteract(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void DoInteract(InputAction.CallbackContext obj)
     {
         CurrentInteractAction?.Invoke(this);
         CurrentInteractAction = null;
