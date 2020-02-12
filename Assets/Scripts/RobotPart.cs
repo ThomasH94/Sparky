@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum RobotPartType
-{
-    Battery,
-    Leg,
-    Scrap
-}
-
 /// <summary>
 /// This script will be the basis of the prefab for collecting Robot Parts
 /// </summary>

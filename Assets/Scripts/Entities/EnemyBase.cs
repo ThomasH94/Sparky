@@ -21,10 +21,20 @@ public abstract class EnemyBase : EntityController
 
     protected IEnumerator losePlayerRoutine;
 
+    #region Flashing
+    [SerializeField] protected Renderer enemyRenderer;
+    bool isFlashing = false;
+    #endregion
+
     protected override void Start()
     {
         base.Start();
         agent.destination = transform.position;
+        enemyRenderer = GetComponentInChildren<Renderer>();
+        if(enemyRenderer == null)
+        {
+            Debug.Log("Enemy material not found on " + gameObject.name);
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -81,6 +91,41 @@ public abstract class EnemyBase : EntityController
         player = null;
     }
 
+    public override int DoDamage(int amount)
+    {
+        base.DoDamage(amount);
+        if (!isDead)
+        {
+            for (int i = 0; i < enemyRenderer.materials.Length; i++)
+            {
+                StartCoroutine(FlashRoutine(enemyRenderer.materials[i]));
+            }
+        }
+
+        return amount;
+    }
+
+    protected virtual IEnumerator FlashRoutine(Material material)
+    {
+        Color flashColor = Color.red;
+        Color baseColor = material.color;
+
+        if(!isFlashing)
+        {
+            isFlashing = true;
+
+            for (int i = 0; i < 3; i++)
+            {
+                enemyRenderer.material.color = flashColor;
+                yield return new WaitForSeconds(0.1f);
+                enemyRenderer.material.color = baseColor;
+                yield return new WaitForSeconds(0.1f);
+            }
+            isFlashing = false;
+        }
+
+    }
+
     public override void DoDie()
     {
         base.DoDie();
@@ -88,6 +133,7 @@ public abstract class EnemyBase : EntityController
         player = null;
         agent.destination = transform.position;
         Instantiate(dropPrefab, transform.position, Quaternion.identity);
+        body = null;
     }
 
     protected virtual void OnPlayerDied()

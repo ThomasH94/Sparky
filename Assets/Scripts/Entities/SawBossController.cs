@@ -6,6 +6,14 @@ using UnityEngine;
 public class SawBossController : EnemyBase
 {
     public event Action<bool> onToggleSpinning;
+    public GameObject TriggerArea;
+    public Renderer bossRenderer;
+
+    protected override void Start()
+    {
+        base.Start();
+        enemyRenderer = bossRenderer;
+    }
 
     public void ToggleSpinning(bool on)
     {
@@ -23,5 +31,21 @@ public class SawBossController : EnemyBase
         }
 
         base.FixedUpdate();
+    }
+
+    public override int DoDamage(int amount)
+    {
+        base.DoDamage(amount);
+        if(health <= 50 && !isDead)
+        {
+            DoDie();
+        }
+        return amount;
+    }
+
+    public override void DoDie()
+    {
+        base.DoDie();
+        TriggerArea.GetComponent<TriggerBossBattle>().OpenDoor();
     }
 }

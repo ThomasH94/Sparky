@@ -8,15 +8,15 @@ public abstract class AbilityBase : MonoBehaviour
 
     public float cooldownRemaining;
 
-    private IEnumerator cooldownTimerRoutine;
+    private IEnumerator _cooldownTimerRoutine;
 
     public virtual void DoUse()
     {
-        if (cooldownTimerRoutine != null)
-            StopCoroutine(cooldownTimerRoutine);
+        if (_cooldownTimerRoutine != null)
+            StopCoroutine(_cooldownTimerRoutine);
 
-        cooldownTimerRoutine = CooldownTimer(cooldown);
-        StartCoroutine(cooldownTimerRoutine);
+        _cooldownTimerRoutine = CooldownTimer(cooldown);
+        StartCoroutine(_cooldownTimerRoutine);
     }
 
     private IEnumerator CooldownTimer(float duration)

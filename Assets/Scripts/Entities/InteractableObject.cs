@@ -9,7 +9,7 @@ public class InteractableObject : EntityController
 
     //[SerializeField]
     //private Transform interactPromptPosition;
-    //TODO: reimplement this if we have time
+    //TODO: have press E prompt be next to folks
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,6 +39,6 @@ public class InteractableObject : EntityController
 
     public virtual void InteractAction(PlayerController player)
     {
-        DialogueManager.Instance.hideInteractPrompt();
+        //DialogueManager.Instance.hideInteractPrompt();
     }
 }

@@ -15,8 +15,10 @@ public class NPCController : InteractableObject {
     [SerializeField]
     private int _legRequirement = 1;
     [SerializeField]
-    private int _scrapRequirement = 20;
-
+    private int _scrapRequirement = 30;
+    [SerializeField]
+    private int _scrapUpgradeInterval = 10;
+    
     [SerializeField]
     private int _batteryHealthUpgrade = 50;
     [SerializeField]
@@ -26,32 +28,44 @@ public class NPCController : InteractableObject {
 
     private QuestTracker _tracker;
     private PlayerController _player;
+    private int _scrapUpgradesGiven;
+    private int _ouches;
 
-    private bool _playerHasBattery, _playerHasLeg, _playerHasScrap;
+    private bool _playerHasBattery, _playerHasLeg, _playerHasScrap, _playerHasAllScrap;
 
-    private bool _anyPartFound
+    private bool anyPartFound
     {
         get { return _playerHasBattery || _playerHasLeg || _playerHasScrap; }
     }
 
-    private bool _batteryPending
+    private bool batteryPending
     {
         get { return !_tracker.batteryMissionComplete && _playerHasBattery; }
     }
 
-    private bool _legPending
+    private bool legPending
     {
         get { return !_tracker.legMissionComplete && _playerHasLeg; }
     }
 
-    private bool _scrapPending
+    private bool scrapPending
     {
         get { return !_tracker.scrapMissionComplete && _playerHasScrap; }
     }
 
-    private bool _anyPartPending
+    private bool anyPartPending
     {
-        get { return _batteryPending || _legPending || _scrapPending; }
+        get { return batteryPending || legPending || scrapPending; }
+    }
+
+    private int currentScrapIntervalRequirement
+    {
+        get { return _scrapUpgradeInterval * (1 + _scrapUpgradesGiven); }
+    }
+
+    private int totalScrapUpgrades
+    {
+        get { return Mathf.CeilToInt(_scrapRequirement / _scrapUpgradeInterval); }
     }
 
     protected override void Start()
@@ -67,6 +81,7 @@ public class NPCController : InteractableObject {
         _player = player_;
 
         CheckPlayerInventory();
+
         Respond();
         CheckUpgrades();
         UpdateParts();
@@ -98,7 +113,7 @@ public class NPCController : InteractableObject {
 
         string response = "";
 
-        if (!_tracker._allMissionsComplete && _anyPartPending)
+        if (!_tracker._allMissionsComplete && anyPartPending)
         {
             response = "AH! You've found some parts!";
 
@@ -112,10 +127,10 @@ public class NPCController : InteractableObject {
                 response += "\nYour <color=#0ff>speed</color> has been upgraded! ";
             }
 
-            //if (!_tracker.legMissionComplete && _playerHasScrap)
-            //{
-            //    response += "\nYour <color=#0ff>attack</color> has been upgraded! ";
-            //}
+            if (!_tracker.legMissionComplete && _playerHasScrap)
+            {
+                response += "\nYour <color=#0ff>attack</color> has been upgraded! ";
+            }
 
             _buddyAnimator.Play("happy");
         }
@@ -125,20 +140,20 @@ public class NPCController : InteractableObject {
 
             if (!_tracker.batteryMissionComplete)
             {
-                response += "my <color=#0ff>[battery]</color> ";
+                response += "my <color=#0ff>[battery]</color>, ";
             }
 
             if (!_tracker.legMissionComplete)
             {
-                response += "my <color=#0ff>[leg]</color> ";
+                response += "my <color=#0ff>[leg]</color>, ";
             }
 
             if (!_tracker.scrapMissionComplete)
             {
-                response += $"my <color=#0ff>[{_scrapRequirement} scrap pieces]</color> ";
+                response += $"my <color=#0ff>[{_scrapRequirement} scrap pieces]</color>, ";
             }
 
-            response += " :c.";
+            response += ":c.";
 
             _buddyAnimator.Play("sad");
         }
@@ -148,7 +163,7 @@ public class NPCController : InteractableObject {
 
     private void CheckPlayerInventory()
     {
-        Dictionary<RobotPartType, int> playerInv = _player.PlayerInventory.Inventory;
+        Dictionary<RobotPartType, int> playerInv = _player.PlayerInventory;
 
         foreach (KeyValuePair<RobotPartType, int> kvp in playerInv)
         {
@@ -171,9 +186,14 @@ public class NPCController : InteractableObject {
                     break;
 
                 case RobotPartType.Scrap:
-                    if (kvp.Value >= _scrapRequirement)
+                    if (kvp.Value >= currentScrapIntervalRequirement)
                     {
                         _playerHasScrap = true;
+
+                        if (kvp.Value >= _scrapRequirement)
+                        {
+                            _playerHasAllScrap = true;
+                        }
                     }
                     break;
             }
@@ -197,8 +217,14 @@ public class NPCController : InteractableObject {
         if (!_tracker.scrapMissionComplete && _playerHasScrap)
         {
             upgradePlayerDamage();
-            _tracker.scrapMissionComplete = true;
+
+            if (_scrapUpgradesGiven >= totalScrapUpgrades)
+            {
+                _tracker.scrapMissionComplete = true;
+            }
         }
+
+        _player.HealthUpdatedEvent?.Invoke(0);
     }
 
     private void upgradePlayerHealth()
@@ -212,13 +238,13 @@ public class NPCController : InteractableObject {
         _player.baseMoveSpeed += _legSpeedUpgrade;
         _player.moveSpeed = _player.baseMoveSpeed;
         _player.health = _player.maxHealth;
-
     }
 
     private void upgradePlayerDamage()
     {
-        //_player. += _scrapDamageUpgrade;
+        _player.damageScale += _scrapDamageUpgrade;
         _player.health = _player.maxHealth;
+        _scrapUpgradesGiven++;
     }
 
     public override void DoDie()
@@ -227,5 +253,27 @@ public class NPCController : InteractableObject {
 
         _tracker.badBoi = true;
         _tracker.CheckForEnding();
+    }
+
+    public override int DoDamage(int amount)
+    {
+        if (health <= maxHealth - 30 && health > maxHealth - 50)
+        {
+            DialogueManager.Instance.ShowDialogue("ouch!");
+        }
+
+        if(health <= 30)
+        {
+            _ouches++;
+
+            string ouch = "OUCH!";
+            for (int i = 0; i < _ouches; i++)
+            {
+                ouch += " OUCH!";
+            }
+            DialogueManager.Instance.ShowDialogue(ouch);
+        }
+
+        return base.DoDamage(amount);
     }
 }

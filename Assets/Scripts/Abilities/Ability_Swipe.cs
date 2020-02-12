@@ -1,35 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Ability_Swipe : AbilityBase
+public class Ability_Swipe : AbilityAttack
 {
     [SerializeField]
-    private int damage;
-    [SerializeField]
-    private LayerMask targetMask;
+    private string secondAbilityAnimation = "attack";
 
-    public List<EntityController> targetsInRange = new List<EntityController>();
+    private bool rightArm = true;
 
-    public override void DoUse()
+    public override void PlayAnimation()
     {
-        base.DoUse();
+        if (entityGraphics == null)
+            return;
 
-        foreach (EntityController target in targetsInRange)
-        {
-            target.DoDamage(damage);
-        }
-    }
+        string attack = rightArm ? abilityAnimation : secondAbilityAnimation;
+        rightArm = !rightArm;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (targetMask == (targetMask | (1 << other.gameObject.layer)))
-            targetsInRange.Add(other.GetComponent<EntityController>());
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (targetMask == (targetMask | (1 << other.gameObject.layer)))
-            targetsInRange.Remove(other.GetComponent<EntityController>());
+        entityGraphics.PlayAnimation(attack);
     }
 }

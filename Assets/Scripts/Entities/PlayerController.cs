@@ -4,44 +4,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//[Serializable]
-//public class InputData
-//{
-//    public Vector2 directional;
-//    public int useAbility;
-//    public bool interact;
-//}
-
 public class PlayerController : EntityController
 {
     public event Action onMove;
     public Action<PlayerController> CurrentInteractAction;
 
     [SerializeField]
-    private CameraController cameraPrefab;
-
-    [NonSerialized]
-    public bool inputEnabled;
-    protected Transform lookAt;
+    private CameraController currentPrefab;
 
     [SerializeField]
-    private PlayerInventory _playerInventory = new PlayerInventory();
-    public PlayerInventory PlayerInventory {
+    private CameraController currentCamera;
+
+    public bool inputEnabled { get; set; }
+
+    protected Transform lookAt;
+
+    //[SerializeField] can't with dictionaries :c
+    private PlayerInventoryDictionary _playerInventory = new PlayerInventoryDictionary();
+    public PlayerInventoryDictionary PlayerInventory {
         get => _playerInventory;
     }
 
     private Vector3 spawnPosition;
 
     public Input input;
+
+
+    private void Awake()
+    {
+        if (currentCamera == null)
+        {
+            currentCamera = Instantiate(currentCamera);
+        }
+
+        currentCamera.Initialize(transform);
+
+        lookAt = new GameObject(gameObject.name + "_LookAt").transform;
+        lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
+    }
+
     protected override void Start()
     {
         base.Start();
         InitializeInput();
-
-        lookAt = new GameObject(gameObject.name + "_LookAt").transform;
-        lookAt.gameObject.hideFlags = HideFlags.HideInHierarchy;
-
-        Instantiate(cameraPrefab).Initialize(transform);
     }
 
     private void InitializeInput()
@@ -56,16 +61,16 @@ public class PlayerController : EntityController
         input.playerControls.use5.performed += context => DoAbility(5);
         input.playerControls.use6.performed += context => DoAbility(6);
 
+        input.playerControls.Interact.performed += DoInteract;
+
         input.playerControls.Reset.performed += context => transform.position = new Vector3(spawnPosition.x, 2f, spawnPosition.z);
         input.playerControls.Quit.performed += context => SceneLoader.Instance.LoadSceneWithString("MainMenu");
-
-        input.playerControls.Interact.performed += DoInteract;
 
         input.Enable();
         inputEnabled = true;
     }
 
-    private void DoInteract(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void DoInteract(InputAction.CallbackContext obj)
     {
         CurrentInteractAction?.Invoke(this);
         CurrentInteractAction = null;

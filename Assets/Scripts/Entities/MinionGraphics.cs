@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinionGraphics : MonoBehaviour
+public class MinionGraphics : EntityGraphics
 {
     [SerializeField]
     private MinionController controller;
-    [SerializeField]
-    private Animator anim;
 
     private void Start()
     {

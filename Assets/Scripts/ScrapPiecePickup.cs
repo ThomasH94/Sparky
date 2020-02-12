@@ -4,7 +4,7 @@
     {
         player.PlayerInventory.addItem(RobotPartType.Scrap);
 
-        int amount = player.PlayerInventory.Inventory[RobotPartType.Scrap];
+        int amount = player.PlayerInventory[RobotPartType.Scrap];
 
         DialogueManager.Instance.ShowDialogue($"<color=#0ff>Scrap Pieces</color> collected: {amount}", 1);
 

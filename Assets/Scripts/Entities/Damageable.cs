@@ -23,6 +23,11 @@ public class Damageable : MonoBehaviour
 
     public virtual int DoDamage(int amount)
     {
+        if(isDead)
+        {
+            return 0;
+        }
+        
         if (health - amount < 0)
             amount = health;
 
