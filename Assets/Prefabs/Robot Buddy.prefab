@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851827172156402119}
-  m_LocalRotation: {x: -0.08716687, y: 0.6237539, z: 0.011998457, w: 0.7766526}
-  m_LocalPosition: {x: 0.003, y: 1.69, z: 0.735}
+  m_LocalRotation: {x: -0.003730724, y: 0.6261786, z: 0.00051356235, w: 0.7796706}
+  m_LocalPosition: {x: -0.023231894, y: 1.6898522, z: 0.71019936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7813047312350571182}
   m_Father: {fileID: 4851827172550420684}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -8.648001, y: 77.934006, z: -5.229}
+  m_LocalEulerAnglesHint: {x: -0.37, y: 77.539, z: -0.22200002}
 --- !u!1 &4851827172234044430
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4851827172550420684}
   - component: {fileID: 4851827172550420685}
   - component: {fileID: 4851827172550420682}
+  - component: {fileID: 5920365200005126938}
   m_Layer: 9
   m_Name: Robot Buddy
   m_TagString: Untagged
@@ -208,6 +209,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5920365200005126938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851827172550420683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &372955614
 Animator:
   serializedVersion: 3

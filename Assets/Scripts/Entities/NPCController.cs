@@ -10,6 +10,7 @@ public class NPCController : InteractableObject {
     [SerializeField]
     private GameObject _batteryCompletePart, _legPartComplete, _scrapPartComplete;
 
+    //TODO: get a requirement class to loop through instead of these properties
     [SerializeField]
     private int _batteryRequirement = 1;
     [SerializeField]
@@ -33,6 +34,7 @@ public class NPCController : InteractableObject {
 
     private bool _playerHasBattery, _playerHasLeg, _playerHasScrap, _playerHasAllScrap;
 
+    //TODO: get a requirement class to loop through instead of these properties
     private bool anyPartFound
     {
         get { return _playerHasBattery || _playerHasLeg || _playerHasScrap; }
@@ -194,6 +196,9 @@ public class NPCController : InteractableObject {
                         {
                             _playerHasAllScrap = true;
                         }
+                    } else
+                    {
+                        _playerHasScrap = false;
                     }
                     break;
             }
