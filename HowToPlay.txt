@@ -4,5 +4,6 @@ WASD - Move in 8 directions
 Escape Key - Quit
 Left Mouse - Attack
 Enter - Restart
+Space - game jam-proof recovery
 
-space - game jam-proof recovery
+reading this - have a lovely evening
