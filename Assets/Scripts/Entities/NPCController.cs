@@ -222,6 +222,7 @@ public class NPCController : InteractableObject {
         if (!_tracker.scrapMissionComplete && _playerHasScrap)
         {
             upgradePlayerDamage();
+            _scrapUpgradesGiven++;
 
             if (_scrapUpgradesGiven >= totalScrapUpgrades)
             {
@@ -249,7 +250,6 @@ public class NPCController : InteractableObject {
     {
         _player.damageScale += _scrapDamageUpgrade;
         _player.health = _player.maxHealth;
-        _scrapUpgradesGiven++;
     }
 
     public override void DoDie()
